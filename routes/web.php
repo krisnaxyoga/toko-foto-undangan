@@ -34,7 +34,7 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2']], function() {
 // untuk superadmin
 Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
     Route::get('/admin', [\App\Http\Controllers\Admin\DashboardController::class, 'index']);
-
+    Route::resource('/category',\App\Http\Controllers\Admin\CategoryController::class);
 });
 
 // untuk customer
