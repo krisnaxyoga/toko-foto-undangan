@@ -66,9 +66,9 @@
                             <div class="nav-link-icon"><i data-feather="activity"></i></div>
                             Dashboard
                         </a>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('category.index') }}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
-                            kelola galeri
+                            category
                         </a>
                         <a class="nav-link" href="#">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
