@@ -52,51 +52,43 @@
 
           <!-- Layout Card Product-->
           <div class="row portfolio-container">
-
+            @foreach ($package as $key=>$item)
             <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-              <div class="portfolio-wrap">
-                <figure>
-                  <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-                  <a href="assets/img/portfolio/portfolio-4.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-                </figure>
+                <div class="portfolio-wrap">
+                  <figure>
+                    <img src="/images/{{ $item->image }}" class="img-fluid" alt="">
+                    <a href="/images/{{ $item->image }}" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bi bi-eye"></i></a>
+                    <a href="#" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
+                    <a href="#" class="link-details" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $key }}">
+                        <i class="bi bi-bag-plus"></i>
+                      </a>
+                  </figure>
 
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html">Card 2</a></h4>
-                  <p>Card</p>
+                  <div class="portfolio-info">
+                    <h4><a href="#">{{ $item->name }}</a></h4>
+                    <p class="text-success mb-3">{{ $item->price }}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-              <div class="portfolio-wrap">
-                <figure>
-                  <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-                  <a href="assets/img/portfolio/portfolio-7.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-                </figure>
-
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html">Card 1</a></h4>
-                  <p>Card</p>
+              <!-- Modal -->
+                <div class="modal fade" id="exampleModal{{ $key }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $item->name }}</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        {{ $item->description }}
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Order</button>
+                        </div>
+                    </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.1s">
-              <div class="portfolio-wrap">
-                <figure>
-                  <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-                  <a href="assets/img/portfolio/portfolio-8.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-                </figure>
-
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html">Card 3</a></h4>
-                  <p>Card</p>
-                </div>
-              </div>
-            </div>
+            @endforeach
 
           </div>
           <div class="text-center mt-3"><button class="btn btn-primary">Tampilkan Data Lainnya</button></div>
