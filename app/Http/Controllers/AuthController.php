@@ -10,10 +10,45 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
         return view('auth.login');
     }
-    public function dologin(Request $request) {
+
+    public function register(Request $request)
+    {
+        return view('auth.register');
+    }
+
+    public function save_register(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator->errors())
+                ->withInput($request->all());
+        } else {
+            $data = new User();
+            $data->name = $request->name;
+            $data->email = $request->email;
+            $data->password = md5($request->password);
+            $data->role_id = 2;
+
+            $data->save();
+
+            return redirect('/login')
+                ->with('message', 'Data berhasil disimpan.');
+        }
+    }
+
+    public function dologin(Request $request)
+    {
         // validasi
         // dd($request->pin);
         $credentials = $request->validate([
@@ -29,7 +64,7 @@ class AuthController extends Controller
             if (auth()->user()->role_id === 1) {
                 // jika user superadmin
                 return redirect()->intended('/admin');
-            } else{
+            } else {
                 return redirect()->intended('/customer');
             }
         }
@@ -39,7 +74,8 @@ class AuthController extends Controller
         return back()->with('error', 'email atau password salah');
     }
 
-    public function logout(Request $request) {
+    public function logout(Request $request)
+    {
         auth()->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();

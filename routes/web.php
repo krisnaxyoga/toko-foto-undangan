@@ -18,7 +18,9 @@ use App\Http\Controllers\RedircetController;
 //  jika user belum login
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [\App\Http\Controllers\Landing\IndexController::class, 'index']);
+    Route::get('/detail', [\App\Http\Controllers\Landing\IndexController::class, 'detail']);
     Route::get('/register', [AuthController::class, 'register'])->name('register');
+    Route::post('/register', [AuthController::class, 'save_register']);
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/login', [AuthController::class, 'dologin']);
 });
@@ -34,6 +36,9 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2']], function () {
 Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
     Route::get('/admin', [\App\Http\Controllers\Admin\DashboardController::class, 'index']);
     Route::resource('/category', \App\Http\Controllers\Admin\CategoryController::class);
+    Route::resource('/packages', \App\Http\Controllers\Admin\PackagesController::class);
+    Route::resource('/themes', \App\Http\Controllers\Admin\ThemesController::class);
+    Route::resource('/users', \App\Http\Controllers\Admin\UsersController::class);
 });
 
 // untuk customer

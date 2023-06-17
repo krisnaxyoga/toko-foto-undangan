@@ -39,27 +39,9 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#testimonials">Testimonials</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
+          <li><a class="nav-link scrollto" href="#what-we-do">Tentang Kami</a></li>
+          <li><a class="nav-link scrollto" href="#services">Daftar Paket</a></li>
+          <li><a class="nav-link scrollto " href="/register">Registrasi</a></li>
           <li><a class="nav-link" href="/login">Login</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -77,9 +59,9 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="container text-center text-md-left" data-aos="fade-up">
-      <h1>Welcome to <span>Lumia</span></h1>
-      <h2>We are team of talented designers making websites with Bootstrap</h2>
-      <a href="/login" class="btn-get-started scrollto">Get Started</a>
+      <h1>Welcome to <span>Artimana Studio</span></h1>
+      <h2>Jasa Photography dan Undangan Digital</h2>
+      <a href="/login" class="btn-get-started scrollto">Pesan Sekarang</a>
     </div>
   </section><!-- End Hero -->
             <main>
@@ -107,11 +89,11 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#hero">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#what-we-do">Tentang Kami</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#services">Daftar Paket</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/register">Registrasi</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/login">Login</a></li>
             </ul>
           </div>
 

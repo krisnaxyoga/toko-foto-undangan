@@ -70,9 +70,13 @@
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             category
                         </a>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('packages.index') }}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             kelola paket fotografi
+                        </a>
+                        <a class="nav-link" href="{{ route('themes.index') }}">
+                            <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
+                            kelola tema
                         </a>
                         <a class="nav-link" href="#">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
@@ -90,7 +94,7 @@
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             data pengguna
                         </a>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('users.index') }}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             data user
                         </a>
