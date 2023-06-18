@@ -26,7 +26,8 @@
                         <div class="form-group">
                             <label class="small mb-1">Background <span class="text-danger">*</span></label>
                             <input id="background-image-input" class="form-control form-control-solid" name="background" type="file" placeholder="Background" value="{{ old('background_image_name', $model->background_image_name) }}" />
-                            <img id="background-image-preview" class="mt-3" style="width: 200px" src="#" alt="Preview">
+                            <br>
+                            <img style="width: 200px; height: auto;" id="preview_background" src="#" alt="Preview Gambar">
                         </div>
                         <div class="form-group">
                             <label class="small mb-1">Price <span class="text-danger">*</span></label>
@@ -35,7 +36,8 @@
                         <div class="form-group">
                             <label class="small mb-1">Mockup Image <span class="text-danger">*</span></label>
                             <input id="mockup-image-input" class="form-control form-control-solid" name="img_mockup" type="file" placeholder="Mockup image" value="{{ old('mockup_image_name', $model->mockup_image_name) }}" />
-                            <img id="mockup-image-preview" class="mt-3" style="width: 200px" src="#" alt="Preview">
+                            <br>
+                            <img style="width: 200px; height: auto;" id="preview_mockup" src="#" alt="Preview Gambar">
                         </div>
                         <div class="form-group">
                             <label class="small mb-1">Sambutan <span class="text-danger">*</span></label>
@@ -54,4 +56,34 @@
         </div>
     </div>
 </div>
+<script>
+    var backgroundInput = document.getElementById('background-image-input');
+    var bgpreviewImg = document.getElementById('preview_background');
+
+    backgroundInput.addEventListener('change', function(e) {
+      var file = backgroundInput.files[0];
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+        bgpreviewImg.src = e.target.result;
+      }
+
+      reader.readAsDataURL(file);
+    });
+</script>
+<script>
+    var mockupInput = document.getElementById('mockup-image-input');
+    var mkpreviewImg = document.getElementById('preview_mockup');
+
+    mockupInput.addEventListener('change', function(e) {
+      var file = mockupInput.files[0];
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+        mkpreviewImg.src = e.target.result;
+      }
+
+      reader.readAsDataURL(file);
+    });
+  </script>
 @endsection

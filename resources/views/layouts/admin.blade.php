@@ -78,7 +78,7 @@
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             kelola tema
                         </a>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('transaksis.index') }}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             kelola transaksi
                         </a>
@@ -90,7 +90,7 @@
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             konfirmasi transaksi
                         </a>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('customers.index') }}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             data pengguna
                         </a>
