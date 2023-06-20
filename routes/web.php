@@ -38,7 +38,9 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
     Route::resource('/category', \App\Http\Controllers\Admin\CategoryController::class);
     Route::resource('/packages', \App\Http\Controllers\Admin\PackagesController::class);
     Route::resource('/themes', \App\Http\Controllers\Admin\ThemesController::class);
+    Route::resource('/customers', \App\Http\Controllers\Admin\CustomersController::class);
     Route::resource('/users', \App\Http\Controllers\Admin\UsersController::class);
+    Route::resource('/transaksis', \App\Http\Controllers\Admin\TransaksisController::class);
 });
 
 // untuk customer
