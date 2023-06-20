@@ -28,7 +28,15 @@
           <input type="text" id="name" name="name" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500" placeholder="Your name" required>
         </div>
         <div class="mb-4">
-          <label for="email" class="block text-gray-700 font-medium">Email</label>
+          <label for="name" class="block text-gray-700 font-medium">Phone</label>
+          <input type="number" id="phone" name="phone" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500" placeholder="Your phone" required>
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block text-gray-700 font-medium">Address</label>
+          <textarea type="text" id="address" name="address" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500" placeholder="Your Address" rows="3"></textarea>
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block text-gray-700 font-medium">Email (for login)</label>
           <input type="email" id="email" name="email" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500" placeholder="Your email" required>
         </div>
         <div class="mb-6">
