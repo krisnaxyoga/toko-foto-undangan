@@ -23,6 +23,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('/register', [AuthController::class, 'save_register']);
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/login', [AuthController::class, 'dologin']);
+
 });
 
 // untuk superadmin dan agent dan vendor
@@ -45,5 +46,15 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
 
 // untuk customer
 Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
-    Route::get('/customer', [\App\Http\Controllers\Customer\DashboardController::class, 'index']);
+    Route::get('/home', [\App\Http\Controllers\Landing\IndexController::class, 'index']);
+    Route::get('/customer', [\App\Http\Controllers\Customer\DashboardController::class, 'index'])->name('customer.dashboard');
+    Route::get('/customer/order/{id}', [\App\Http\Controllers\Customer\OrderController::class, 'index'])->name('customer.order');
+    Route::get('/customer/orderundangan/{id}', [\App\Http\Controllers\Customer\OrderController::class, 'undangan'])->name('customer.orderundangan');
+
+    Route::get('/customer/bayar/{id}', [\App\Http\Controllers\Customer\OrderController::class, 'ipaymu'])->name('customer.bayar');
+    Route::get('/customer/paymentcuscess', [\App\Http\Controllers\Customer\OrderController::class, 'paymentsuccess'])->name('payment.success');
+    Route::get('/customer/paymentnotify', [\App\Http\Controllers\Customer\OrderController::class, 'notify'])->name('payment.notify');
+    Route::get('/customer/transaksi', [\App\Http\Controllers\Customer\OrderController::class, 'transaksi'])->name('payment.transaksi');
+
+    Route::get('/customer/bayarundangan', [\App\Http\Controllers\Customer\OrderController::class, 'ipaymuundangan'])->name('customer.bayarundangan');
 });

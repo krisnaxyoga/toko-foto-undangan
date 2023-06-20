@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Customer;
 use App\Models\Role;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
@@ -37,10 +38,17 @@ class AuthController extends Controller
             $data = new User();
             $data->name = $request->name;
             $data->email = $request->email;
-            $data->password = md5($request->password);
+            $data->password = Hash::make($request->password);
             $data->role_id = 2;
 
             $data->save();
+
+            $cust = new Customer();
+            $cust->user_id = $data->id;
+            $cust->name = $request->name;
+            $cust->phone = $request->phone;
+            $cust->address = $request->address;
+            $cust->save();
 
             return redirect('/login')
                 ->with('message', 'Data berhasil disimpan.');

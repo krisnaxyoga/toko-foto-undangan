@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Landing;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Package;
+use App\Models\Theme;
 
 class IndexController extends Controller
 {
@@ -12,7 +14,9 @@ class IndexController extends Controller
      */
     public function index()
     {
-        return view('app');
+        $package = Package::paginate(3);
+        $theme = Theme::paginate(3);
+        return view('app',compact('package','theme'));
     }
 
     /**
