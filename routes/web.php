@@ -47,4 +47,9 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
     Route::get('/home', [\App\Http\Controllers\Landing\IndexController::class, 'index']);
     Route::get('/customer', [\App\Http\Controllers\Customer\DashboardController::class, 'index'])->name('customer.dashboard');
     Route::get('/customer/order/{id}', [\App\Http\Controllers\Customer\OrderController::class, 'index'])->name('customer.order');
+
+    Route::get('/customer/bayar/{id}', [\App\Http\Controllers\Customer\OrderController::class, 'ipaymu'])->name('customer.bayar');
+    Route::get('/customer/paymentcuscess', [\App\Http\Controllers\Customer\OrderController::class, 'paymentsuccess'])->name('payment.success');
+    Route::get('/customer/paymentnotify', [\App\Http\Controllers\Customer\OrderController::class, 'notify'])->name('payment.notify');
+    Route::get('/customer/transaksi', [\App\Http\Controllers\Customer\OrderController::class, 'transaksi'])->name('payment.transaksi');
 });

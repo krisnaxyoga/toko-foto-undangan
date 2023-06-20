@@ -39,7 +39,7 @@
                       <hr>
                       <div class="mb-2">
                         <div class="from-group">
-                          <button type="submit" class="mr-5 btn btn-primary">Bayar</button>
+                          <a href="{{route('customer.bayar',$paket[0]->id)}}" type="submit" class="mr-5 btn btn-primary">Bayar</a>
                         </div>
                       </div>
                     </form>

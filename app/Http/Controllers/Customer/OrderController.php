@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\Package;
+use App\Models\Order;
+use App\Models\Transaksi;
 use GuzzleHttp\Client;
 use Illuminate\Http\RedirectResponse;
 use Carbon\Carbon;
@@ -27,9 +29,12 @@ class OrderController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function transaksi()
     {
-        //
+        $iduser = auth()->user()->id;
+        $data = Order::where('user_id',$iduser)->with('package')->get();
+
+        return view('customer.transaksi.index',compact('data'));
     }
 
     /**
@@ -73,25 +78,23 @@ class OrderController extends Controller
     }
 
     public function ipaymu($id){
-
+        $iduser = auth()->user()->id;
+        $paket = Package::where('id',$id)->get();
+        $customer = Customer::where('user_id',$iduser)->get();
             $data['url'] = 'https://sandbox.ipaymu.com/api/v2/payment';
-            $jmltopup = $request->price;
 
             $codeunix = $this->generateRandomString(3);
 
-            $total = intval($jmltopup) + intval($codeunix);
-
             // dd($total);
             $jml = [
-                'total'=>$jmltopup,
-                'pin' => $pin
+                'total'=>$paket[0]->price
             ];
             
             $data['body'] = [
                 'name' => array(auth()->user()->name), //array($request->name),
                 'email' => array(auth()->user()->email),//array($request->email),
-                'product' =>array('subscribe'), //array($pacakage),
-                'price' =>array($total),
+                'product' =>array($paket[0]->name), //array($pacakage),
+                'price' =>array($paket[0]->price),
                 'qty' => array(1),//array($request->qty),
                 'returnUrl' => route('payment.success',$jml),
                 'notifyUrl' => route('payment.notify'),
@@ -112,20 +115,22 @@ class OrderController extends Controller
                     $data['trxData'] = $response->Data;
                     $data['url'] = $response->Data->Url;
                     // dd($data);
-                    $trans = new Transaction;
-                    $trans->price = $total;
-                    $trans->id_user = auth()->user()->id;
-                    $trans->totalsaldo = auth()->user()->saldo + $total;
-                    $trans->status = 'top-up';
-                    $trans->payment_category = '';
+                    $trans = new Order;
+                    $trans->total = $paket[0]->price;
+                    $trans->package_id = $paket[0]->id;
+                    $trans->customer_id = $customer[0]->id;
+                    $trans->user_id = $iduser;
+                    $trans->status = 'pembayaran di proses';
+                    $trans->type_order = 'paket-foto';
                     $trans->save();
 
-                    $topup = new TopUp;
-                    $topup->id_user = auth()->user()->id;
-                    $topup->id_transaction = $trans->id;
-                    $topup->price = $jmltopup;
-                    $topup->code = $response->Data->SessionID;
-                    $topup->url = $response->Data->Url;
+                    $topup = new Transaksi;
+                    $topup->user_id = $iduser;
+                    $topup->total = $paket[0]->price;
+                    $topup->order_id = $trans->id;
+                    $topup->customer_id = $customer[0]->id;
+                    $topup->status = 'pembayaran di proses';
+                    $topup->url_pembayaran = $response->Data->Url;
                     $topup->save();
 
                     return redirect()->to($response->Data->Url);
@@ -214,16 +219,23 @@ class OrderController extends Controller
     public function paymentsuccess(Request $request){
         // dd($request->total);
         $id = auth()->user()->id;
+        $order = Order::where('user_id',$id)->where('status','pembayaran di proses')->get();
+        $transaksi = Transaksi::where('user_id',$id)->where('status','pembayaran di proses')->get();
+
         if($request->status == 'berhasil'){
 
-            $saldo = auth()->user()->saldo + $request->total;
+           foreach ($order as $is){
+            $trans = Order::find($is->id);
+            $trans->status = $request->status;
+            $trans->save();
+           }
+            foreach($transaksi as $item){
+                $topup = Transaksi::find($item->id);
+                $topup->status = $request->status;
+                $topup->save();
+            }
 
-            $data = User::find($id);
-            $data->status = 'silver';
-            $data->saldo = $saldo;
-            $data->save();
-
-            return redirect()->route('vippost',$request->pin)->with('success', 'Top up berhasil');
+            return redirect()->route('payment.transaksi')->with('success', 'Top up berhasil');
         }else{
             return abort(404);
         }
@@ -232,16 +244,23 @@ class OrderController extends Controller
     }
     public function notify(Request $request){
         $id = auth()->user()->id;
+        $order = Order::where('user_id',$id)->where('status','pembayaran di proses')->get();
+        $transaksi = Transaksi::where('user_id',$id)->where('status','pembayaran di proses')->get();
+
         if($request->status == 'berhasil'){
 
-            $saldo = auth()->user()->saldo + $request->total;
+            foreach ($order as $is){
+                $trans = Order::find($id->id);
+                $trans->status = $request->status;
+                $trans->save();
+               }
+                foreach($transaksi as $item){
+                    $topup = Transaksi::find($item->id);
+                    $topup->status = $request->status;
+                    $topup->save();
+                }
 
-            $data = User::find($id);
-            $data->status = 'silver';
-            $data->saldo = $saldo;
-            $data->save();
-
-            return redirect()->route('vippost',$request->pin)->with('success', 'Top up berhasil');
+            return redirect()->route('payment.transaksi')->with('success', 'bayar berhasil');
         }else{
             return abort(404);
         }

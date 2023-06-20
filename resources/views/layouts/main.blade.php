@@ -18,7 +18,7 @@
   </head>
   <body>
     <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
-        <a class="navbar-brand h-100 text-truncate" href="#">
+        <a class="navbar-brand h-100 text-truncate" href="/home">
             <img class="img-fluid" src="/images/logo.png"/>
              Customer
         </a>
@@ -62,35 +62,19 @@
                 <div class="sidenav-menu">
                     <div class="nav accordion" id="accordionSidenav">
                         <div class="sidenav-menu-heading">Main</div>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/customer">
                             <div class="nav-link-icon"><i data-feather="activity"></i></div>
                             Dashboard
                         </a>
-                        <a class="nav-link" href="#">
-                            <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
-                            paket fotografi
-                        </a>
-                        <a class="nav-link" href="#">
-                            <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
-                            detail paket
-                        </a>
-                        <a class="nav-link" href="#">
-                            <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
-                            keranjang
+                        <a class="nav-link" href="/home">
+                            <div class="nav-link-icon"><i data-feather="activity"></i></div>
+                            Home Page
                         </a>
                         {{-- <a class="nav-link" href="{{ route('dashboard.pengiriman.index') }}">
                             <div class="nav-link-icon"><i data-feather="clipboard"></i></div>
                            Pengiriman
                         </a> --}}
-                        <a class="nav-link" href="#">
-                            <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
-                            checkout
-                        </a>
-                        <a class="nav-link" href="#">
-                            <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
-                            upload bukti bayar
-                        </a>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('payment.transaksi')}}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             riwayat transaksi
                         </a>
