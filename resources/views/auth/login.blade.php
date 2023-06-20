@@ -46,7 +46,7 @@
                     </div> --}}
                     <button type="submit" class="btn btn-primary">LOGIN</button>
                 </form>
-                {{-- <p>Belum punya akun? <a class="text-success" href="{{ route('invite') }}">Daftar</a></p> --}}
+                <p>Belum punya akun? <a class="text-success" href="{{ route('register') }}">Daftar disini</a></p>
             </div>
         </div>
     </div>

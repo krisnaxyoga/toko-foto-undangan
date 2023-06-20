@@ -41,8 +41,13 @@
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#what-we-do">Tentang Kami</a></li>
           <li><a class="nav-link scrollto" href="#services">Daftar Paket</a></li>
-          <li><a class="nav-link scrollto " href="/register">Registrasi</a></li>
+          <li><a class="nav-link scrollto " href="/register">Undangan Online</a></li>
+          @if(Auth::user())
+         
+          <li><a class="nav-link" href="{{route('customer.dashboard')}}">dashboard</a></li>
+          @else
           <li><a class="nav-link" href="/login">Login</a></li>
+          @endif
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -93,7 +98,12 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#what-we-do">Tentang Kami</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#services">Daftar Paket</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="/register">Registrasi</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="/login">Login</a></li>
+              <li>
+                @if(!Auth::user())
+                <i class="bx bx-chevron-right"></i> <a href="/login">Login</a></li>
+                @else
+                <i class="bx bx-chevron-right"></i> <a href="/login">Dashboard {{auth()->user()->id}} {{Auth::user()->name}}</a></li>
+                @endif
             </ul>
           </div>
 

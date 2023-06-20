@@ -28,6 +28,14 @@
           <input type="text" id="name" name="name" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500" placeholder="Your name" required>
         </div>
         <div class="mb-4">
+          <label for="name" class="block text-gray-700 font-medium">phone</label>
+          <input type="text" id="name" name="phone" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500" placeholder="Your phone" required>
+        </div>
+        <div class="mb-4">
+          <label for="name" class="block text-gray-700 font-medium">address</label>
+          <input type="text" id="name" name="address" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500" placeholder="Your address" required>
+        </div>
+        <div class="mb-4">
           <label for="email" class="block text-gray-700 font-medium">Email</label>
           <input type="email" id="email" name="email" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500" placeholder="Your email" required>
         </div>
