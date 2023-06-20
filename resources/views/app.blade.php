@@ -110,10 +110,10 @@
             <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
                 <div class="portfolio-wrap">
                   <figure>
-                    <img src="/images/{{ $item->image }}" class="img-fluid" alt="">
-                    <a href="/images/{{ $item->image }}" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bi bi-eye"></i></a>
+                    <img src="/mockup_img/{{ $item->img_mockup }}" class="img-fluid" alt="">
+                    <a href="/mockup_img/{{ $item->img_mockup }}" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bi bi-eye"></i></a>
                     <a href="#" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-                    <a href="#" class="link-details" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $key }}">
+                    <a href="{{route('customer.orderundangan',$item->id)}}" class="link-details">
                         <i class="bi bi-bag-plus"></i>
                       </a>
                   </figure>
@@ -125,7 +125,7 @@
                 </div>
               </div>
               <!-- Modal -->
-                <div class="modal fade" id="exampleModal{{ $key }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                {{-- <div class="modal fade" id="exampleModalx{{ $key }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -141,7 +141,7 @@
                         </div>
                     </div>
                     </div>
-                </div>
+                </div> --}}
             @endforeach
 
           </div>

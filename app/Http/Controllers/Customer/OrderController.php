@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\Package;
 use App\Models\Order;
+use App\Models\UndanganOrder;
+use App\Models\Theme;
 use App\Models\Transaksi;
 use GuzzleHttp\Client;
 use Illuminate\Http\RedirectResponse;
@@ -24,6 +26,14 @@ class OrderController extends Controller
         $customer = Customer::where('user_id',$iduser)->get();
         $paket = Package::where('id',$id)->get();
         return view('order',compact('customer','paket'));
+    }
+
+    public function undangan($id)
+    {
+        $iduser = auth()->user()->id;
+        $customer = Customer::where('user_id',$iduser)->get();
+        $theme = Theme::where('id',$id)->get();
+        return view('orderundangan',compact('customer','theme'));
     }
 
     /**
@@ -83,11 +93,12 @@ class OrderController extends Controller
         $customer = Customer::where('user_id',$iduser)->get();
             $data['url'] = 'https://sandbox.ipaymu.com/api/v2/payment';
 
-            $codeunix = $this->generateRandomString(3);
+           
 
             // dd($total);
             $jml = [
-                'total'=>$paket[0]->price
+                'total'=>$paket[0]->price,
+                'type' => "paket-foto"
             ];
             
             $data['body'] = [
@@ -219,8 +230,8 @@ class OrderController extends Controller
     public function paymentsuccess(Request $request){
         // dd($request->total);
         $id = auth()->user()->id;
-        $order = Order::where('user_id',$id)->where('status','pembayaran di proses')->get();
-        $transaksi = Transaksi::where('user_id',$id)->where('status','pembayaran di proses')->get();
+        $order = Order::where('user_id',$id)->where('status','pembayaran di proses')->where('type_order',$request->type)->get();
+        $transaksi = Transaksi::where('user_id',$id)->where('order_id',$order[0]->id)->where('status','pembayaran di proses')->get();
 
         if($request->status == 'berhasil'){
 
@@ -244,8 +255,8 @@ class OrderController extends Controller
     }
     public function notify(Request $request){
         $id = auth()->user()->id;
-        $order = Order::where('user_id',$id)->where('status','pembayaran di proses')->get();
-        $transaksi = Transaksi::where('user_id',$id)->where('status','pembayaran di proses')->get();
+        $order = Order::where('user_id',$id)->where('status','pembayaran di proses')->where('type_order',$request->type)->get();
+        $transaksi = Transaksi::where('user_id',$id)->where('order_id',$order[0]->id)->where('status','pembayaran di proses')->get();
 
         if($request->status == 'berhasil'){
 
@@ -264,70 +275,91 @@ class OrderController extends Controller
         }else{
             return abort(404);
         }
-        //LOG ES
-        // $logger =  New \App\Libs\Logger;
-
-        // $log['type'] = 'merchant-premium-notify';
-        // $log['subtype'] = 'notify';
-        // $log['url']  = \request()->getHost();
-        // $log['ip']   = request()->ip();
-        // $log['date'] = date('Y-m-d H:i:s');
-        // $log['requestheaders']  = \json_encode($request->headers->all());
-        // $log['requestparams']   = \json_encode($request->all());
-
-        // $logger->generate($log);
-        //ENDLOG ES
-
-        // if($request->sid) {
-            // $transaction = Transaction::where('ipaymu_sid', $request->sid)->first();
-            // if($transaction) {
-// dd($request->status);
-                // DB::beginTransaction();
-                // try {
-                //     if(strtolower($request->status) == 'berhasil') {
-                //         $transaction->status         = 1;
-                //         $transaction->ipaymu_id      = $request->trx_id;
-                //         $transaction->save();
-
-
-                //         $res['status'] = 'Success';
-                //         $res['info']  = 'Success';
-
-                //     } elseif(strtolower($request->status) == 'gagal') {
-                //         $transaction->status         = 2;
-                //         $transaction->save();
-
-                //         $res['status'] = 'Gagal';
-                //         $res['info']  = 'Gagal';
-
-                //     } else {
-
-                //         $res['status'] = 'Pending';
-                //         $res['info']  = 'Pending';
-                //     }
-
-                //     DB::commit();
-                // } catch (Exception $e) {
-                //     \report($e);
-                //     DB::rollBack();
-                // }
-
-                // return $request->status;
-            // }
-        // }
+        
 
     }
 
-    
-    function generateRandomString($length) {
-        $characters = '0123456789';
-        $randomString = '';
-    
-        for ($i = 0; $i < $length; $i++) {
-            $index = rand(0, strlen($characters) - 1);
-            $randomString .= $characters[$index];
-        }
-    
-        return $randomString;
+    public function ipaymuundangan(Request $request){
+        // dd($request->all());
+        $iduser = auth()->user()->id;
+        $paket = Theme::where('id',$request->theme)->get();
+        $customer = Customer::where('user_id',$iduser)->get();
+
+            $data['url'] = 'https://sandbox.ipaymu.com/api/v2/payment';
+
+           
+
+            // dd($total);
+            $jml = [
+                'total'=>$paket[0]->price,
+                'type' => "undangan-online"
+            ];
+            
+            $data['body'] = [
+                'name' => array(auth()->user()->name), //array($request->name),
+                'email' => array(auth()->user()->email),//array($request->email),
+                'product' =>array($paket[0]->name), //array($pacakage),
+                'price' =>array($paket[0]->price),
+                'qty' => array(1),//array($request->qty),
+                'returnUrl' => route('payment.success',$jml),
+                'notifyUrl' => route('payment.notify'),
+                'comments' => 'order produk',
+                'referenceId' => '1234',
+                'vistreason' => 'chest hurting bad'
+            ];
+            $data['method'] = 'POST';
+
+            $result = $this->callApiIpaymuBtb($data);
+            // dd($result);
+            if($result['status'] == 200){
+                // DB::beginTransaction();
+                try{
+                    $response = json_decode($result['res']);
+                    // dd($response);
+                    $data['title']  = 'Pembayaran Ticket';
+                    $data['trxData'] = $response->Data;
+                    $data['url'] = $response->Data->Url;
+                    // dd($data);
+                    $ou = new UndanganOrder;
+                    $ou->title = $request->title;
+                    $ou->theme_id = $paket[0]->id;
+                    $ou->customer_id = $customer[0]->id;
+                    $ou->user_id = $iduser;
+                    $ou->nama_pria = $request->pria;
+                    $ou->nama_wanita = $request->wanita;
+                    $ou->tgl_mulai = $request->tglmulai;
+                    $ou->tgl_selesai = $request->tglselesai;
+                    $ou->tempat_acara = $request->tempat;
+                    $ou->waktu_mulai = $request->waktumulai;
+                    $ou->waktu_selesai = $request->waktuselesai ;
+                    $ou->save();
+
+                    $trans = new Order;
+                    $trans->total = $paket[0]->price;
+                    $trans->package_id = $paket[0]->id;
+                    $trans->customer_id = $customer[0]->id;
+                    $trans->user_id = $iduser;
+                    $trans->status = 'pembayaran di proses';
+                    $trans->type_order = 'undangan-online';
+                    $trans->save();
+
+                    $topup = new Transaksi;
+                    $topup->user_id = $iduser;
+                    $topup->total = $paket[0]->price;
+                    $topup->order_id = $trans->id;
+                    $topup->customer_id = $customer[0]->id;
+                    $topup->status = 'pembayaran di proses';
+                    $topup->url_pembayaran = $response->Data->Url;
+                    $topup->save();
+
+                    return redirect()->to($response->Data->Url);
+
+                } catch (Exception $e){
+                    DB::rollBack();
+                    return back()->with('Gagal membuat pembayaran');
+                }
+            } else {
+            return back()->with('Gagal membuat pembayaran');
+            }
     }
 }
