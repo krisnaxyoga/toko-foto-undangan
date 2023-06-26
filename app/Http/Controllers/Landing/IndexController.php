@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Package;
 use App\Models\Theme;
 
+use App\Models\UndanganOrder;
+
 class IndexController extends Controller
 {
     /**
@@ -45,6 +47,11 @@ class IndexController extends Controller
         return view('theme', compact('theme'));
     }
 
+    public function undangan(){
+        $id = auth()->user()->id;
+        $undangan = UndanganOrder::where('user_id',$id)->with('theme')->get();
+        return view('undangan',compact('undangan'));
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -56,9 +63,9 @@ class IndexController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function sendundangan(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

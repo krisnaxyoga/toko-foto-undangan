@@ -10,7 +10,7 @@
                         <h2>Riwayat Transaksi</h2>
                     </div>
                     <div class="card-body">
-                        
+
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
@@ -28,7 +28,7 @@
                                     <td>{{$item->package->description}}</td>
                                     <td>{{$item->total}}</td>
                                     <td>{{$item->status}}</td>
-    
+
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -38,6 +38,28 @@
                 </div>
             </div>
         </div>
+        @if (count($undangan))
+            <div class="row mt-4">
+                <div class="col-lg-6">
+                    @foreach ($undangan as $item)
+                    <div class="card">
+                        <div class="card-header">{{ $item->title }}</div>
+                        <div class="card-body">
+                            <form action="{{ route('customer.sendsend') }}" method="post" enctype="multipart/form-data">
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="">nomor whatsapp penerima</label>
+                                    <input type="text" class="form-control" name="wanomor">
+                                </div>
+                                <hr>
+                                <button class="btn btn-primary">send</button>
+                            </form>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        @endif
     </div>
 
     {{-- <div class="container">

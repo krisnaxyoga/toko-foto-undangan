@@ -43,8 +43,9 @@ class OrderController extends Controller
     {
         $iduser = auth()->user()->id;
         $data = Order::where('user_id', $iduser)->with('package')->get();
+        $undangan = UndanganOrder::where('user_id',$iduser)->get();
 
-        return view('customer.transaksi.index', compact('data'));
+        return view('customer.transaksi.index', compact('data','undangan'));
     }
 
     /**
@@ -228,7 +229,7 @@ class OrderController extends Controller
     }
     public function paymentsuccess(Request $request)
     {
-        // dd($request->total);
+        // dd($request->all());
         $id = auth()->user()->id;
         $order = Order::where('user_id', $id)->where('status', 'pembayaran di proses')->where('type_order', $request->type)->get();
         $transaksi = Transaksi::where('user_id', $id)->where('order_id', $order[0]->id)->where('status', 'pembayaran di proses')->get();
@@ -245,6 +246,19 @@ class OrderController extends Controller
                 $topup->status = $request->status;
                 $topup->save();
             }
+
+            // if($request->type == 'undangan-online'){
+            //     $undangan = new UndanganOrder();
+            //     $undangan->title = $request->title;
+            //     $undangan->pria = $request->pria;
+            //     $undangan->wanita = $request->wanita;
+            //     $undangan->tempat = $request->tempat;
+            //     $undangan->tglmulai = $request->tglmulai;
+            //     $undangan->tglselesai = $request->tglselesai;
+            //     $undangan->waktumulai = $request->waktumulai;
+            //     $undangan->waktuselesai = $request->waktuselesai;
+            //     $undangan->save();
+            // }
 
             return redirect()->route('payment.transaksi')->with('success', 'Top up berhasil');
         } else {
@@ -292,7 +306,15 @@ class OrderController extends Controller
         // dd($total);
         $jml = [
             'total' => $paket[0]->price,
-            'type' => "undangan-online"
+            'type' => "undangan-online",
+            // "title" => $request->title,
+            // "pria" => $request->pria,
+            // "wanita" => $request->wanita,
+            // "tempat" => $request->tempat,
+            // "tglmulai" => $request->tglmulai,
+            // "tglselesai" => $request->tglselesai,
+            // "waktumulai" => $request->waktumulai,
+            // "waktuselesai" => $request->waktuselesai
         ];
 
         $data['body'] = [

@@ -12,4 +12,8 @@ class Theme extends Model
     {
         return $this->hasMany(Order::class);
     }
+    public function undanganorders()
+    {
+        return $this->hasMany(UndanganOrder::class);
+    }
 }

@@ -58,6 +58,9 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
     Route::get('/customer/transaksi', [\App\Http\Controllers\Customer\OrderController::class, 'transaksi'])->name('payment.transaksi');
 
     Route::get('/customer/bayarundangan', [\App\Http\Controllers\Customer\OrderController::class, 'ipaymuundangan'])->name('customer.bayarundangan');
+    Route::get('/customer/undangan', [\App\Http\Controllers\Landing\IndexController::class, 'undangan'])->name('customer.undangansend');
+
+    Route::post('/customer/sendundangan', [\App\Http\Controllers\Landing\IndexController::class, 'sendundangan'])->name('customer.sendsend');
 
     Route::get('/customer/profile/{id}', [\App\Http\Controllers\Customer\DashboardController::class, 'edit_profile'])->name('customer.profile');
     Route::put('/customer/update-profile/{id}', [\App\Http\Controllers\Customer\DashboardController::class, 'update_profile'])->name('customer.update');
