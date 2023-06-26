@@ -65,7 +65,33 @@ class IndexController extends Controller
      */
     public function sendundangan(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
+        $phoneNumber = $request->wanomor;
+        $message = "Om Swastyastu
+
+        Atas asung kertha wara nugraha Ida Sang Hyang Widi Wasa
+        /Tuhan Yang Maha Esa, kami akan melaksanakan
+        Upacara Agama Manusa Yadnya
+        Pawiwahan & Mepandes
+
+        Tanpa mengurangi rasa hormat
+        kami bermaksud mengundang Bapak/Ibu/Saudara/i
+        pada Acara Resepsi Kami
+        melalui link Undangan Online dibawah ini:
+
+        " . route('customer.undangansend') . "
+
+        Atas perhatian dan kehadirannya
+        kami sekeluarga mengucapkan Terima Kasih
+
+        Om Santhi, Santhi, Santhi, Om";
+
+
+        // Ubah nomor telepon jika diperlukan (misalnya, tambahkan kode negara atau hapus spasi)
+
+        $whatsAppUrl = "https://wa.me/{$phoneNumber}?text=" . urlencode($message);
+
+        return redirect()->away($whatsAppUrl);
     }
 
     /**

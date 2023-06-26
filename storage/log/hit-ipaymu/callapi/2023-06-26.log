@@ -40,3 +40,17 @@ STATUS: 200
 RESPONSE: "{\"Status\":200,\"Success\":true,\"Message\":\"Success\",\"Data\":{\"SessionID\":\"03c17363-0386-48d8-a01e-b6c2e2bd9d2a\",\"Url\":\"https:\\\/\\\/sandbox.ipaymu.com\\\/payment\\\/03c17363-0386-48d8-a01e-b6c2e2bd9d2a\"}}"
 -----------------------------------------
 
+TIME: 2023-06-26 15:38:12 
+IP: 127.0.0.1HEADER : 
+{"Content-Type":"application\/json","va":"0000002413132123","signature":"778d7d342db99c1e52d303bed57ac545dc4b12312300092e5e484961ffbaa6f0","timestamp":"20230626153812"} 
+REQUEST : 
+{"url":"https:\/\/sandbox.ipaymu.com\/api\/v2\/payment","body":{"name":["jhon delaer honda motor"],"email":["pierce44@example.org"],"product":["es cream keju"],"price":[20000],"qty":[1],"returnUrl":"http:\/\/127.0.0.1:8009\/customer\/paymentcuscess?total=20000&type=undangan-online","notifyUrl":"http:\/\/127.0.0.1:8009\/customer\/paymentnotify","comments":"order produk","referenceId":"1234","vistreason":"chest hurting bad"},"method":"POST"} 
+TIME: 2023-06-26 15:38:12 
+IP: 127.0.0.1HEADER : 
+{"Content-Type":"application\/json","va":"0000002413132123","signature":"778d7d342db99c1e52d303bed57ac545dc4b12312300092e5e484961ffbaa6f0","timestamp":"20230626153812"} 
+REQUEST : 
+{"url":"https:\/\/sandbox.ipaymu.com\/api\/v2\/payment","body":{"name":["jhon delaer honda motor"],"email":["pierce44@example.org"],"product":["es cream keju"],"price":[20000],"qty":[1],"returnUrl":"http:\/\/127.0.0.1:8009\/customer\/paymentcuscess?total=20000&type=undangan-online","notifyUrl":"http:\/\/127.0.0.1:8009\/customer\/paymentnotify","comments":"order produk","referenceId":"1234","vistreason":"chest hurting bad"},"method":"POST"} 
+STATUS: 200
+RESPONSE: "{\"Status\":200,\"Success\":true,\"Message\":\"Success\",\"Data\":{\"SessionID\":\"3c1ce560-5ece-4690-9ba2-b5fe7fbce7d2\",\"Url\":\"https:\\\/\\\/sandbox.ipaymu.com\\\/payment\\\/3c1ce560-5ece-4690-9ba2-b5fe7fbce7d2\"}}"
+-----------------------------------------
+
