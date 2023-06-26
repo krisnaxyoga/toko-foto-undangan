@@ -19,11 +19,12 @@ use App\Http\Controllers\RedircetController;
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [\App\Http\Controllers\Landing\IndexController::class, 'index']);
     Route::get('/detail', [\App\Http\Controllers\Landing\IndexController::class, 'detail']);
+    Route::get('/list-package', [\App\Http\Controllers\Landing\IndexController::class, 'list_package'])->name('list_package');
+    Route::get('/list-theme', [\App\Http\Controllers\Landing\IndexController::class, 'list_theme'])->name('list_theme');
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'save_register']);
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/login', [AuthController::class, 'dologin']);
-
 });
 
 // untuk superadmin dan agent dan vendor
@@ -57,4 +58,7 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
     Route::get('/customer/transaksi', [\App\Http\Controllers\Customer\OrderController::class, 'transaksi'])->name('payment.transaksi');
 
     Route::get('/customer/bayarundangan', [\App\Http\Controllers\Customer\OrderController::class, 'ipaymuundangan'])->name('customer.bayarundangan');
+
+    Route::get('/customer/profile/{id}', [\App\Http\Controllers\Customer\DashboardController::class, 'edit_profile'])->name('customer.profile');
+    Route::put('/customer/update-profile/{id}', [\App\Http\Controllers\Customer\DashboardController::class, 'update_profile'])->name('customer.update');
 });

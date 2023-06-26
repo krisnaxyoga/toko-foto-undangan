@@ -1,5 +1,5 @@
-@extends('layouts.landing')
-@section('title', 'Home Page')
+@extends('layouts.page')
+@section('title', 'Detail Page')
 @section('content')
 
     <!-- ======= What We Do Section ======= -->

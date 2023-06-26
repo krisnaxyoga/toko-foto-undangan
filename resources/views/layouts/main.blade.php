@@ -78,7 +78,7 @@
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             riwayat transaksi
                         </a>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('customer.profile',Auth::user()->id)}}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             edit profil
                         </a>

@@ -2,7 +2,45 @@
 @section('title', 'Home Page')
 @section('content')
 <section>
-    <div class="container">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Riwayat Transaksi</h2>
+                    </div>
+                    <div class="card-body">
+                        
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                    <th>Package name</th>
+                                    <th>Description</th>
+                                    <th>Transaction</th>
+                                    <th>status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($data as $item)
+                                    <tr>
+                                    <td>{{$item->package->name}}</td>
+                                    <td>{{$item->package->description}}</td>
+                                    <td>{{$item->total}}</td>
+                                    <td>{{$item->status}}</td>
+    
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 @foreach ($data as $item)
@@ -31,6 +69,6 @@
                 @endforeach
             </div>
         </div>
-    </div>
+    </div> --}}
 </section>
 @endsection

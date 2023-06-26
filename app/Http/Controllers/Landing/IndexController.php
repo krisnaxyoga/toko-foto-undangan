@@ -16,7 +16,7 @@ class IndexController extends Controller
     {
         $package = Package::paginate(3);
         $theme = Theme::paginate(3);
-        return view('app',compact('package','theme'));
+        return view('app', compact('package', 'theme'));
     }
 
     /**
@@ -25,6 +25,24 @@ class IndexController extends Controller
     public function detail()
     {
         return view('detail');
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function list_package()
+    {
+        $package = Package::all();
+        return view('package', compact('package'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function list_theme()
+    {
+        $theme = Theme::all();
+        return view('theme', compact('theme'));
     }
 
     /**

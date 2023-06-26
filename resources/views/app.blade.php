@@ -91,7 +91,7 @@
             @endforeach
 
           </div>
-          <div class="text-center mt-3"><button class="btn btn-primary">Tampilkan Data Lainnya</button></div>
+          <div class="text-center mt-3"><a href="{{route('list_package')}}" class="btn btn-primary">Tampilkan Data Lainnya</a></div>
         </div>
       </section><!-- End Services Section -->
 
@@ -145,7 +145,7 @@
             @endforeach
 
           </div>
-          <div class="text-center mt-3"><button class="btn btn-primary">Tampilkan Data Lainnya</button></div>
+          <div class="text-center mt-3"><a href="{{route('list_theme')}}" class="btn btn-primary">Tampilkan Data Lainnya</a></div>
         </div>
       </section><!-- End Services Section -->
 
