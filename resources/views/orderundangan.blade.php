@@ -39,6 +39,12 @@
                       </div>
                       <div class="mb-3">
                         <div class="form-group">
+                          <label for="" class="ml-0 mb-2">Lokasi acara (link googlemaps)</label>
+                          <input type="text" name="maps" value="" class="form-control form-control-solid" placeholder="masukan link google maps">
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <div class="form-group">
                           <label for="" class="ml-0 mb-2">Tanggal mulai</label>
                           <input type="date" name="tglmulai" value="" class="form-control form-control-solid">
                         </div>
