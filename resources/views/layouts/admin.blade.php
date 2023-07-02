@@ -13,6 +13,7 @@
     <link rel="icon" type="image/x-icon" href="/images/logo.png" />
     <script data-search-pseudo-elements defer src="/dashboard_assets/cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
     <script src="/dashboard_assets/cdnjs.cloudflare.com/ajax/libs/feather-icons/4.27.0/feather.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
     @stack('style')
     <title>Dashboard</title>
   </head>
@@ -66,15 +67,19 @@
                             <div class="nav-link-icon"><i data-feather="activity"></i></div>
                             Dashboard
                         </a>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('category.index') }}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
-                            kelola galeri
+                            category
                         </a>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('packages.index') }}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             kelola paket fotografi
                         </a>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('themes.index') }}">
+                            <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
+                            kelola tema
+                        </a>
+                        <a class="nav-link" href="{{ route('transaksis.index') }}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             kelola transaksi
                         </a>
@@ -86,11 +91,11 @@
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             konfirmasi transaksi
                         </a>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('customers.index') }}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             data pengguna
                         </a>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('users.index') }}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             data user
                         </a>

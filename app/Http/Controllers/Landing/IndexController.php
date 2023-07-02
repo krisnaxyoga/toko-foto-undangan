@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Landing;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Package;
+use App\Models\Theme;
+
+use App\Models\UndanganOrder;
 
 class IndexController extends Controller
 {
@@ -12,9 +16,44 @@ class IndexController extends Controller
      */
     public function index()
     {
-        return view('app');
+        $package = Package::paginate(3);
+        $theme = Theme::paginate(3);
+        return view('app', compact('package', 'theme'));
     }
 
+    /**
+     * Display a listing of the resource.
+     */
+    public function detail()
+    {
+        return view('detail');
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function list_package()
+    {
+        $package = Package::all();
+        return view('package', compact('package'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function list_theme()
+    {
+        $theme = Theme::all();
+        return view('theme', compact('theme'));
+    }
+
+    public function undangan()
+    {
+        $id = auth()->user()->id;
+        $undangan = UndanganOrder::where('user_id', $id)->with('theme')->get();
+        // return view('undangan',compact('undangan'));
+        return view('diundang', compact('undangan'));
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -26,9 +65,35 @@ class IndexController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function sendundangan(Request $request)
     {
-        //
+        // dd($request->all());
+        $phoneNumber = $request->wanomor;
+        $message = "Om Swastyastu
+
+        Atas asung kertha wara nugraha Ida Sang Hyang Widi Wasa
+        /Tuhan Yang Maha Esa, kami akan melaksanakan
+        Upacara Agama Manusa Yadnya
+        Pawiwahan & Mepandes
+
+        Tanpa mengurangi rasa hormat
+        kami bermaksud mengundang Bapak/Ibu/Saudara/i
+        pada Acara Resepsi Kami
+        melalui link Undangan Online dibawah ini:
+
+        " . route('customer.undangansend') . "
+
+        Atas perhatian dan kehadirannya
+        kami sekeluarga mengucapkan Terima Kasih
+
+        Om Santhi, Santhi, Santhi, Om";
+
+
+        // Ubah nomor telepon jika diperlukan (misalnya, tambahkan kode negara atau hapus spasi)
+
+        $whatsAppUrl = "https://wa.me/{$phoneNumber}?text=" . urlencode($message);
+
+        return redirect()->away($whatsAppUrl);
     }
 
     /**
