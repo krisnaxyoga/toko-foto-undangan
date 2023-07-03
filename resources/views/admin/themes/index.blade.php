@@ -28,8 +28,8 @@
                                 <tr>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->price }}</td>
-                                    <td>{{ $item->sambutan }}</td>
-                                    <td>{{ $item->penutup }}</td>
+                                    <td>{{ strip_tags($item->sambutan) }}</td>
+                                    <td>{{ strip_tags($item->penutup) }}</td>
                                     <td>{{ $item->created_at }}</td>
                                     <td><a href="{{ route('themes.edit',$item->id) }}" class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i data-feather="edit"></i></a>
 

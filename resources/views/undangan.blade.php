@@ -40,7 +40,7 @@
 </head>
 <body>
     @foreach ($undangan as $item)
-  <div class="container" style="background-image: url('/background_img/{{ $item->theme->background }}');">
+  <div class="container" style="background-image: url('/background_img/{{ $item->theme->background }}'); background-repeat: no-repeat; background-size: 100% 100%;">
     <div class="row">
         <div class="col-lg-12">
             <div class="card" style="background-color: #ffffff4a;">
@@ -53,7 +53,7 @@
                          {{ $item->waktu_mulai }} - {{ $item->waktu_selesai }}</p>
                     <h2>Lokasi:</h2>
                     <p>{{ $item->tempat_acara }}</p>
-                    <p>{{ $item->theme->penutup }}</p>
+                    <p>{{ strip_tags($item->theme->penutup) }}</p>
                     <p>Terima kasih atas perhatian dan kehadirannya.</p>
                     <p>Salam hangat,</p>
                     <p>{{ $item->title }}</p>

@@ -13,6 +13,7 @@ use App\Models\Transaksi;
 use GuzzleHttp\Client;
 use Illuminate\Http\RedirectResponse;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class OrderController extends Controller
@@ -43,9 +44,9 @@ class OrderController extends Controller
     {
         $iduser = auth()->user()->id;
         $data = Order::where('user_id', $iduser)->with('package')->get();
-        $undangan = UndanganOrder::where('user_id',$iduser)->get();
+        $undangan = UndanganOrder::where('user_id', $iduser)->get();
 
-        return view('customer.transaksi.index', compact('data','undangan'));
+        return view('customer.transaksi.index', compact('data', 'undangan'));
     }
 
     /**
@@ -352,6 +353,7 @@ class OrderController extends Controller
                 $ou->tgl_mulai = $request->tglmulai;
                 $ou->tgl_selesai = $request->tglselesai;
                 $ou->tempat_acara = $request->tempat;
+                $ou->maps = $request->maps;
                 $ou->waktu_mulai = $request->waktumulai;
                 $ou->waktu_selesai = $request->waktuselesai;
                 $ou->save();

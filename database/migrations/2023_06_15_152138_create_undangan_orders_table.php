@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->string('nama_pria')->nullable();
             $table->string('nama_wanita')->nullable();
+            $table->text('maps')->nullable();
             $table->date('tgl_mulai')->nullable();
             $table->date('tgl_selesai')->nullable();
             $table->timestamps();

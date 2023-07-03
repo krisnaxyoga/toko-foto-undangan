@@ -47,10 +47,12 @@ class IndexController extends Controller
         return view('theme', compact('theme'));
     }
 
-    public function undangan(){
+    public function undangan()
+    {
         $id = auth()->user()->id;
-        $undangan = UndanganOrder::where('user_id',$id)->with('theme')->get();
-        return view('undangan',compact('undangan'));
+        $undangan = UndanganOrder::where('user_id', $id)->with('theme')->get();
+        // return view('undangan',compact('undangan'));
+        return view('diundang', compact('undangan'));
     }
     /**
      * Show the form for creating a new resource.
