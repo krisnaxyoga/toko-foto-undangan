@@ -224,7 +224,7 @@
     </section>
     <!-- Akhir galeri -->
     <!-- Pesan dan Doa -->
-    <section id="pesan" class="card">
+    {{-- <section id="pesan" class="card">
       <div class="container col-md-6">
         <div class="row text-center mb-3 mt-3">
           <div class="col">
@@ -237,7 +237,7 @@
             </div>   
         </div>
       </div>
-    </section>
+    </section> --}}
     <!-- Akhir pesan dan doa -->
     </main>
     <!-- content end -->
@@ -245,7 +245,7 @@
     <footer>
       <nav class="footer" style="background-color: rgb(215, 127, 161)">
         <div class="container-fluid">       
-        <a href="#" class="text-white fw-bold" style="text-decoration: none">&copy; 2023 Created with WebNeko</a>
+        <a href="#" class="text-white fw-bold" style="text-decoration: none">&copy; 2023</a>
         </div>
       </nav>
     </footer>
