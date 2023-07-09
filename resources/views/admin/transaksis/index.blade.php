@@ -10,12 +10,12 @@
                     <h2>Transaksi</h2>
                 </div>
                 <div class="card-body">
-                    {{-- <a href="{{ route('customers.create') }}" class="btn btn-primary mb-2">add</a> --}}
+                    <a href="{{ route('excel.transaksis') }}" class="btn btn-success mb-2">Download Excel</a>
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>User ID</th>
+                                    <th>User Name</th>
                                     <th>Customer ID</th>
                                     <th>Order ID</th>
                                     <th>Total</th>

@@ -109,12 +109,12 @@
         <div class="row justify-content-around">
           <div class="col-md-4 mb-3">
             <img class="mb-3" src="/assets_undangan/images/ornam/Asset5a.png"/>
-            <img src="/assets_undangan/images/pria/pria.jpg" width="200" alt="Pawiwahan" class="rounded-circle img-thumbnail" />
+            <img src="/foto_pria/{{ $item->fotopria }}" width="200" alt="Pawiwahan" class="rounded-circle img-thumbnail" />
             <img class="mt-3 mb-3" src="/assets_undangan/images/ornam/Asset5.png"/>
             <h1 class="text-center">{{ $item->nama_pria }}</h1>
-            <h2 class="fs-5">Putra Pertama dari pasangan</h2>
-            <h2 class="fs-5">I Made Aman & Ni Wayan Sugih</h2>
-            <h2 class="fs-5">Br. Nusa Dua</h2>
+            <h2 class="fs-5">Putra dari pasangan</h2>
+            <h2 class="fs-5">{{ $item->ortupria }}</h2>
+            <h2 class="fs-5">{{ $item->asalpria }}</h2>
           </div>
         </div>
       </div>
@@ -134,12 +134,12 @@
         <div class="row justify-content-around">
           <div class="col-md-4">
             <img class="mt-3 mb-3" src="/assets_undangan/images/ornam/Asset5a.png"/>
-            <img src="/assets_undangan/images/wanita/wanita.jpg" width="200" alt="Pawiwahan" class="rounded-circle img-thumbnail" />
+            <img src="/foto_wanita/{{ $item->fotowanita }}" width="200" alt="Pawiwahan" class="rounded-circle img-thumbnail" />
             <img class="mt-3 mb-3" src="/assets_undangan/images/ornam/Asset5.png"/>
             <h1 class="text-center">{{ $item->nama_wanita }}</h1>
-            <h2 class="fs-5">Putri Pertama dari pasangan</h2>
-            <h2 class="fs-5">I Made Sejahtera & Ni Nyoman Rejeki</h2>
-            <h2 class="fs-5">BR. Padang Galak Sanur</h2>
+            <h2 class="fs-5">Putri dari pasangan</h2>
+            <h2 class="fs-5">{{ $item->ortuwanita }}</h2>
+            <h2 class="fs-5">{{ $item->asalwanita }}</h2>
           </div>
         </div>
       </div>

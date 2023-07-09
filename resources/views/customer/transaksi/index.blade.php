@@ -28,7 +28,6 @@
                                     <td>{{$item->package->description}}</td>
                                     <td>{{$item->total}}</td>
                                     <td>{{$item->status}}</td>
-
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -38,7 +37,43 @@
                 </div>
             </div>
         </div>
-        @if (count($undangan))
+        <div class="row mt-3">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Riwayat Undangan</h2>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                    <th>Title</th>
+                                    <th>Tempat Acara</th>
+                                    <th>Tgl Mulai</th>
+                                    <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($undangan as $item)
+                                    <tr>
+                                    <td>{{$item->title}}</td>
+                                    <td>{{$item->tempat_acara}}</td>
+                                    <td>{{$item->tgl_mulai}}</td>
+                                    <td><a href="{{ route('transaksi.edit',$item->id) }}" title="update isi undangan" class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i data-feather="edit"></i></a>
+                                        <a href="{{ route('transaksi.wa',$item->id) }}" title="send wa undangan" class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i data-feather="send"></i></a>
+                                    </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- @if (count($undangan))
             <div class="row mt-4">
                 <div class="col-lg-6">
                     @foreach ($undangan as $item)
@@ -59,7 +94,7 @@
                     @endforeach
                 </div>
             </div>
-        @endif
+        @endif --}}
     </div>
 
     {{-- <div class="container">
@@ -92,5 +127,6 @@
             </div>
         </div>
     </div> --}}
+
 </section>
 @endsection

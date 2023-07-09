@@ -10,11 +10,14 @@ use App\Models\Order;
 use App\Models\UndanganOrder;
 use App\Models\Theme;
 use App\Models\Transaksi;
+use App\Models\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\RedirectResponse;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
 
 class OrderController extends Controller
 {
@@ -34,6 +37,7 @@ class OrderController extends Controller
         $iduser = auth()->user()->id;
         $customer = Customer::where('user_id', $iduser)->get();
         $theme = Theme::where('id', $id)->get();
+
         return view('orderundangan', compact('customer', 'theme'));
     }
 
@@ -49,44 +53,111 @@ class OrderController extends Controller
         return view('customer.transaksi.index', compact('data', 'undangan'));
     }
 
+    //Update Transaksi Pelanggan
     /**
-     * Store a newly created resource in storage.
+     * Update the specified resource in storage.
      */
-    public function store(Request $request)
+    public function update_transaksi(Request $request, string $id)
     {
-        //
-    }
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'nama_pria' => 'required',
+            'nama_wanita' => 'required',
+            'tgl_mulai' => 'required',
+            'tgl_selesai' => 'required',
+            'waktu_mulai' => 'required',
+            'waktu_selesai' => 'required',
+            'tempat_acara' => 'required',
+            'ortupria' => 'required',
+            'ortuwanita' => 'required',
+            'asalpria' => 'required',
+            'asalwanita' => 'required',
+            'fotopria' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5048', // maksimal 5MB
+            'fotowanita' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5048', // maksimal 5MB
+        ]);
+        $post = UndanganOrder::findorfail($id);
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator->errors())
+                ->withInput($request->all());
+        } else {
+            if ($request->file('fotopria') != null && $request->file('fotowanita') != null) {
+                if ($request->hasFile('fotopria') && $request->hasFile('fotowanita')) {
+                    $fotopria = $request->file('fotopria');
+                    $fotowanita = $request->file('fotowanita');
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+                    if (File::exists(public_path($post->image_url))) {
+                        File::delete(public_path($post->image_url));
+                    }
+                    $filenamepria = time() . '.' . $fotopria->getClientOriginalExtension();
+                    $filenamewanita = time() . '.' . $fotowanita->getClientOriginalExtension();
+                    $fotopria->move(public_path('foto_pria'), $filenamepria);
+                    $fotowanita->move(public_path('foto_wanita'), $filenamewanita);
+
+                    // Lakukan hal lain yang diperlukan, seperti menyimpan nama file dalam database
+                }
+                $fotopria = "/foto_pria/" . $filenamepria;
+                $fotowanita = "/foto_wanita/" . $filenamewanita;
+            } else {
+                // $image = $post->image_url;
+                $filenamepria = $post->fotopria;
+                $filenamewanita = $post->fotowanita;
+            }
+        }
+
+        $gallery = $request->file('gallery'); // Mendapatkan file gambar yang diunggah
+        $paths = []; // Array untuk menyimpan path gambar yang disimpan
+        foreach ($gallery as $image) {
+            $path = $image->store('public/gallery');
+            $paths[] = $path;
+        }
+        // Lakukan tindakan lain, misalnya menyimpan path gambar ke database
+        // return response()->json(['message' => 'Gambar berhasil disimpan', 'paths' => $paths], 200);
+
+        $data = UndanganOrder::find($id);
+        $data->title = $request->title;
+        $data->nama_pria = $request->nama_pria;
+        $data->nama_wanita = $request->nama_wanita;
+        $data->tgl_mulai = $request->tgl_mulai;
+        $data->tgl_selesai = $request->tgl_selesai;
+        $data->waktu_mulai = $request->waktu_mulai;
+        $data->waktu_selesai = $request->waktu_selesai;
+        $data->tempat_acara = $request->tempat_acara;
+        $data->maps = $request->maps;
+        $data->ortupria = $request->ortupria;
+        $data->ortuwanita = $request->ortuwanita;
+        $data->asalpria = $request->asalpria;
+        $data->asalwanita = $request->asalwanita;
+        $data->fotopria = $filenamepria;
+        $data->fotowanita = $filenamewanita;
+        $data->gallery = $paths;
+
+        $data->save();
+
+        return redirect()
+            ->route('payment.transaksi')
+            ->with('message', 'Data berhasil disimpan.');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit_transaksi(string $id)
     {
-        //
+        $model = UndanganOrder::query()->findOrFail($id);
+
+        return view('customer.transaksi.edit', compact('model'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Show the form for editing the specified resource.
      */
-    public function update(Request $request, string $id)
+    public function send_undangan(string $id)
     {
-        //
-    }
+        $model = UndanganOrder::query()->findOrFail($id);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return view('customer.transaksi.wa', compact('model'));
     }
 
     public function ipaymu($id)
