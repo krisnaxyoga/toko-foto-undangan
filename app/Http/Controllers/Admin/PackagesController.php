@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\PackageExport;
 use App\Http\Controllers\Controller;
 use App\Models\Categorypackage;
 use App\Models\Package;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PackagesController extends Controller
 {
@@ -29,6 +31,11 @@ class PackagesController extends Controller
         $category = Categorypackage::all();
 
         return view('admin.packages.form', compact('model', 'category'));
+    }
+
+    public function dataPackagesExcel()
+    {
+        return Excel::download(new PackageExport, 'package.xlsx');
     }
 
     /**

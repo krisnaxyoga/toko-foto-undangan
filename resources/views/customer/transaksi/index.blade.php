@@ -10,7 +10,7 @@
                         <h2>Riwayat Transaksi</h2>
                     </div>
                     <div class="card-body">
-
+                        <a href="{{ route('excel.transcust') }}" class="btn btn-success mb-2">Download Excel</a>
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>

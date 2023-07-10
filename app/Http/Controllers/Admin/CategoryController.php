@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Categorypackage;
 
 use Illuminate\Support\Facades\Validator;
+use App\Exports\CategoryExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CategoryController extends Controller
 {
@@ -16,7 +18,12 @@ class CategoryController extends Controller
     public function index()
     {
         $data = Categorypackage::all();
-        return view('admin.category.index',compact('data'));
+        return view('admin.category.index', compact('data'));
+    }
+
+    public function dataCategoryExcel()
+    {
+        return Excel::download(new CategoryExport, 'category.xlsx');
     }
 
     /**
@@ -26,7 +33,7 @@ class CategoryController extends Controller
     {
         $model = new Categorypackage;
 
-        return view('admin.category.form',compact('model'));
+        return view('admin.category.form', compact('model'));
     }
 
     /**
@@ -69,7 +76,7 @@ class CategoryController extends Controller
     {
         $model = Categorypackage::query()->findOrFail($id);
 
-        return view('admin.category.form',compact('model'));
+        return view('admin.category.form', compact('model'));
     }
 
     /**

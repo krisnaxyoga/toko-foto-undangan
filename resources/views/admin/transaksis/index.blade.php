@@ -16,8 +16,8 @@
                             <thead>
                                 <tr>
                                     <th>User Name</th>
-                                    <th>Customer ID</th>
-                                    <th>Order ID</th>
+                                    <th>Customer Name</th>
+                                    <th>Order Type</th>
                                     <th>Total</th>
                                     <th>Url Pembayaran</th>
                                     <th>status</th>
@@ -28,9 +28,9 @@
                             <tbody>
                                 @foreach ($data as $item)
                                 <tr>
-                                    <td>{{ $item->user_id }}</td>
-                                    <td>{{ $item->customer_id }}</td>
-                                    <td>{{ $item->order_id }}</td>
+                                    <td>{{ $item->users->name }}</td>
+                                    <td>{{ $item->customers->name }}</td>
+                                    <td>{{ $item->orders->type_order }}</td>
                                     <td>{{ $item->total }}</td>
                                     <td>{{ $item->url_pembayaran }}</td>
                                     <td>{{ $item->status }}</td>

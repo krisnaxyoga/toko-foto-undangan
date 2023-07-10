@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Customer;
 
+use App\Exports\TranscustExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Customer;
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
+use Maatwebsite\Excel\Facades\Excel;
 
 class OrderController extends Controller
 {
@@ -51,6 +53,11 @@ class OrderController extends Controller
         $undangan = UndanganOrder::where('user_id', $iduser)->get();
 
         return view('customer.transaksi.index', compact('data', 'undangan'));
+    }
+
+    public function dataTransaksisExcel()
+    {
+        return Excel::download(new TranscustExport, 'riwayat_transaksi.xlsx');
     }
 
     //Update Transaksi Pelanggan

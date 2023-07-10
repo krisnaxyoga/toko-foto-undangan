@@ -11,6 +11,7 @@
                 </div>
                 <div class="card-body">
                     <a href="{{ route('packages.create') }}" class="btn btn-primary mb-2">add</a>
+                    <a href="{{ route('excel.packages') }}" class="btn btn-success mb-2">Download Excel</a>
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
@@ -29,7 +30,7 @@
                                 <tr>
                                     <td>{{ $item->categorypackage->name }}</td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->image }}</td>
+                                    <td><img src="/images/{{ $item->image }}" width="100"/></td>
                                     <td class="elipsis">{{ $item->description }}</td>
                                     <td>{{ $item->price }}</td>
                                     <td>{{ $item->created_at }}</td>
