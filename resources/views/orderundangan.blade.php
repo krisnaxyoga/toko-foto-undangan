@@ -88,7 +88,7 @@
                       </div>
                       <div class="col-6">
                        <p class="mb-3">{{$theme[0]->name}}</p>
-                       <p class="mb-3">{{$theme[0]->price}}</p>
+                       <p class="mb-3">Rp. {{ number_format($theme[0]->price , 0, ',', '.')}}</p>
                        <p class="mb-3"><img src="{{$theme[0]->img_mockup}}" alt=""> </p>
                       </div>
                     </div>

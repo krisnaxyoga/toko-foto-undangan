@@ -69,7 +69,7 @@
 
                   <div class="portfolio-info">
                     <h4><a href="#">{{ $item->name }}</a></h4>
-                    <p class="text-success mb-3">{{ $item->price }}</p>
+                    <p class="text-success mb-3">Rp. {{ number_format($item->price , 0, ',', '.')}}</p>
                   </div>
                 </div>
               </div>
@@ -123,7 +123,7 @@
 
                   <div class="portfolio-info">
                     <h4><a href="#">{{ $item->name }}</a></h4>
-                    <p class="text-success mb-3">{{ $item->price }}</p>
+                    <p class="text-success mb-3">Rp. {{ number_format($item->price , 0, ',', '.')}}</p>
                   </div>
                 </div>
               </div>

@@ -56,7 +56,7 @@
                       </div>
                       <div class="col-6">
                        <p class="mb-2">{{$paket[0]->name}}</p> 
-                       <p class="mb-2">{{$paket[0]->price}}</p>
+                       <p class="mb-2">Rp. {{ number_format($paket[0]->price , 0, ',', '.')}}</p>
                        <p class="mb-2">{{$paket[0]->description}}</p>
                       </div>
                     </div>
