@@ -1,0 +1,42 @@
+TIME: 2023-07-11 00:16:14 
+IP: 127.0.0.1HEADER : 
+{"Content-Type":"application\/json","va":"0000002413132123","signature":"4d82308e879f4545cd431bc57215ae8ea236dbb817b4e5394ed20979267bf67a","timestamp":"20230711001614"} 
+REQUEST : 
+{"url":"https:\/\/sandbox.ipaymu.com\/api\/v2\/payment","body":{"name":["surya sucipta"],"email":["bernard@gmail.com"],"product":["tess 2"],"price":[150000],"qty":[1],"returnUrl":"http:\/\/127.0.0.1:8003\/customer\/paymentcuscess?total=150000&type=paket-foto","notifyUrl":"http:\/\/127.0.0.1:8003\/customer\/paymentnotify","comments":"order produk","referenceId":"1234","vistreason":"chest hurting bad"},"method":"POST"} 
+TIME: 2023-07-11 00:16:14 
+IP: 127.0.0.1HEADER : 
+{"Content-Type":"application\/json","va":"0000002413132123","signature":"4d82308e879f4545cd431bc57215ae8ea236dbb817b4e5394ed20979267bf67a","timestamp":"20230711001614"} 
+REQUEST : 
+{"url":"https:\/\/sandbox.ipaymu.com\/api\/v2\/payment","body":{"name":["surya sucipta"],"email":["bernard@gmail.com"],"product":["tess 2"],"price":[150000],"qty":[1],"returnUrl":"http:\/\/127.0.0.1:8003\/customer\/paymentcuscess?total=150000&type=paket-foto","notifyUrl":"http:\/\/127.0.0.1:8003\/customer\/paymentnotify","comments":"order produk","referenceId":"1234","vistreason":"chest hurting bad"},"method":"POST"} 
+STATUS: 200
+RESPONSE: "{\"Status\":200,\"Success\":true,\"Message\":\"Success\",\"Data\":{\"SessionID\":\"8b094b98-fd65-42c8-8a3f-392f7dc98d39\",\"Url\":\"https:\\\/\\\/sandbox.ipaymu.com\\\/payment\\\/8b094b98-fd65-42c8-8a3f-392f7dc98d39\"}}"
+-----------------------------------------
+
+TIME: 2023-07-11 00:19:27 
+IP: 127.0.0.1HEADER : 
+{"Content-Type":"application\/json","va":"0000002413132123","signature":"2f1510186f9c02d814216fbc2049f1be454ad437856d2b01cb0e2a6ccae78179","timestamp":"20230711001927"} 
+REQUEST : 
+{"url":"https:\/\/sandbox.ipaymu.com\/api\/v2\/payment","body":{"name":["surya sucipta"],"email":["bernard@gmail.com"],"product":["sabac"],"price":[100000],"qty":[1],"returnUrl":"http:\/\/127.0.0.1:8003\/customer\/paymentcuscess?total=100000&type=undangan-online","notifyUrl":"http:\/\/127.0.0.1:8003\/customer\/paymentnotify","comments":"order produk","referenceId":"1234","vistreason":"chest hurting bad"},"method":"POST"} 
+TIME: 2023-07-11 00:19:27 
+IP: 127.0.0.1HEADER : 
+{"Content-Type":"application\/json","va":"0000002413132123","signature":"2f1510186f9c02d814216fbc2049f1be454ad437856d2b01cb0e2a6ccae78179","timestamp":"20230711001927"} 
+REQUEST : 
+{"url":"https:\/\/sandbox.ipaymu.com\/api\/v2\/payment","body":{"name":["surya sucipta"],"email":["bernard@gmail.com"],"product":["sabac"],"price":[100000],"qty":[1],"returnUrl":"http:\/\/127.0.0.1:8003\/customer\/paymentcuscess?total=100000&type=undangan-online","notifyUrl":"http:\/\/127.0.0.1:8003\/customer\/paymentnotify","comments":"order produk","referenceId":"1234","vistreason":"chest hurting bad"},"method":"POST"} 
+STATUS: 200
+RESPONSE: "{\"Status\":200,\"Success\":true,\"Message\":\"Success\",\"Data\":{\"SessionID\":\"3a5529fd-89d3-4956-9066-50cc6b73fb79\",\"Url\":\"https:\\\/\\\/sandbox.ipaymu.com\\\/payment\\\/3a5529fd-89d3-4956-9066-50cc6b73fb79\"}}"
+-----------------------------------------
+
+TIME: 2023-07-11 01:32:43 
+IP: 127.0.0.1HEADER : 
+{"Content-Type":"application\/json","va":"0000002413132123","signature":"2f1510186f9c02d814216fbc2049f1be454ad437856d2b01cb0e2a6ccae78179","timestamp":"20230711013243"} 
+REQUEST : 
+{"url":"https:\/\/sandbox.ipaymu.com\/api\/v2\/payment","body":{"name":["surya sucipta"],"email":["bernard@gmail.com"],"product":["sabac"],"price":[100000],"qty":[1],"returnUrl":"http:\/\/127.0.0.1:8003\/customer\/paymentcuscess?total=100000&type=undangan-online","notifyUrl":"http:\/\/127.0.0.1:8003\/customer\/paymentnotify","comments":"order produk","referenceId":"1234","vistreason":"chest hurting bad"},"method":"POST"} 
+TIME: 2023-07-11 01:32:43 
+IP: 127.0.0.1HEADER : 
+{"Content-Type":"application\/json","va":"0000002413132123","signature":"2f1510186f9c02d814216fbc2049f1be454ad437856d2b01cb0e2a6ccae78179","timestamp":"20230711013243"} 
+REQUEST : 
+{"url":"https:\/\/sandbox.ipaymu.com\/api\/v2\/payment","body":{"name":["surya sucipta"],"email":["bernard@gmail.com"],"product":["sabac"],"price":[100000],"qty":[1],"returnUrl":"http:\/\/127.0.0.1:8003\/customer\/paymentcuscess?total=100000&type=undangan-online","notifyUrl":"http:\/\/127.0.0.1:8003\/customer\/paymentnotify","comments":"order produk","referenceId":"1234","vistreason":"chest hurting bad"},"method":"POST"} 
+STATUS: 200
+RESPONSE: "{\"Status\":200,\"Success\":true,\"Message\":\"Success\",\"Data\":{\"SessionID\":\"b8abc83c-01c4-4b71-ac50-ba44cae7d9a4\",\"Url\":\"https:\\\/\\\/sandbox.ipaymu.com\\\/payment\\\/b8abc83c-01c4-4b71-ac50-ba44cae7d9a4\"}}"
+-----------------------------------------
+

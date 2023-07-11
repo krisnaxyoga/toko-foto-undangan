@@ -16,7 +16,7 @@ class TransaksisExport implements FromCollection, WithMapping, WithHeadings
     public function collection()
     {
         return DB::table('transaksis')
-            ->select('transaksis.*', 'users.name AS username', 'customers.name AS custname', 'orders.type_order AS tipe_order')
+            ->select('transaksis.*', 'users.name AS username', 'customers.phone AS custname','customers.address AS alamat', 'orders.type_order AS tipe_order')
             ->join('users', 'users.id', '=', 'transaksis.user_id')
             ->join('customers', 'customers.id', '=', 'transaksis.customer_id')
             ->leftjoin('orders', 'orders.id', '=', 'transaksis.order_id')
@@ -30,6 +30,7 @@ class TransaksisExport implements FromCollection, WithMapping, WithHeadings
             //data yang dari kolom tabel database yang akan diambil
             $transaksis->username,
             $transaksis->custname,
+            $transaksis->alamat,
             $transaksis->tipe_order,
             $transaksis->total,
             $transaksis->url_pembayaran,
@@ -44,7 +45,8 @@ class TransaksisExport implements FromCollection, WithMapping, WithHeadings
         return [
             //pastikan urut dan jumlahnya sesuai dengan yang ada di mapping-data atau table di database
             'Nama Pengguna',
-            'Nama Customer',
+            'phone',
+            'alamat',
             'Tipe Order',
             'Total',
             'Url Pembayaran',

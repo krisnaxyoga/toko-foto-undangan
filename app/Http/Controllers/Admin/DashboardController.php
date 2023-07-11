@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Customer;
+use App\Models\order;
+
 class DashboardController extends Controller
 {
     /**
@@ -12,7 +15,12 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $customer = Customer::count();
+        $undangan = Order::where('type_order','undangan-online')->count();
+        $paket = Order::where('type_order','paket-foto')->count();
+        $total = Order::where('status','berhasil')->sum('total');
+
+        return view('admin.index',compact('customer','undangan','paket','total'));
     }
 
     /**

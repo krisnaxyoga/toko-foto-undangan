@@ -17,12 +17,13 @@
                                 <tr>
                                     <th>User Name</th>
                                     <th>Customer Name</th>
+                                    <th>Customer phone</th>
+                                    <th>address</th>
                                     <th>Order Type</th>
                                     <th>Total</th>
                                     <th>Url Pembayaran</th>
                                     <th>status</th>
                                     <th>created</th>
-                                    <th>action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -30,22 +31,15 @@
                                 <tr>
                                     <td>{{ $item->users->name }}</td>
                                     <td>{{ $item->customers->name }}</td>
+                                    <td>{{ $item->customers->phone }}</td>
+                                    
+                                    <td>{{ $item->customers->address }}</td>
                                     <td>{{ $item->orders->type_order }}</td>
                                     <td>{{ $item->total }}</td>
                                     <td>{{ $item->url_pembayaran }}</td>
                                     <td>{{ $item->status }}</td>
                                     <td>{{ $item->created_at }}</td>
-                                    <td><a href="{{ route('transaksis.edit',$item->id) }}" class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i data-feather="edit"></i></a>
-
-                                        <form class="d-inline" action="{{route('transaksis.destroy', $item->id)}}" method="POST" onSubmit="return confirm('Apakah anda yakin akan menghapus data ini?');">
-                                            @csrf
-                                            @method('delete')
-
-                                            <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark mr-2">
-                                                <i data-feather="trash-2"></i>
-                                            </button>
-                                        </form>
-                                    </td>
+                                   
 
                                 </tr>
                                 @endforeach

@@ -79,11 +79,11 @@
                             <br>
                             <img style="width: 200px; height: auto;" id="previewwanita" src="#" alt="Preview Gambar">
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label class="small mb-1">Foto Galeri (Bisa Pilih foto lebih dari satu)<span class="text-danger">*</span></label>
                             <input type="file" class="form-control form-control-solid" name="gallery[]" multiple>
                             {{-- <input id="fileInput" class="form-control form-control-solid" name="fotopria" type="file" placeholder="Foto Pria" value="{{ old('fotopria', $model->fotopria) }}" /> --}}
-                        </div>
+                        {{-- </div> --}}
                         <div class="form-group">
                             <label class="small mb-1">Nama Orang Tua mempelai Pria <span class="text-danger">*</span></label>
                             <input class="form-control form-control-solid" name="ortupria" type="text" placeholder="Contoh : I Made Subak & Ni Wayan Sekar" value="{{ old('ortupria', $model->ortupria) }}" />

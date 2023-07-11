@@ -47,33 +47,35 @@
               <a class="nav-link" href="#about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#galeri">Galeri</a>
+              {{-- <a class="nav-link" href="#galeri">Galeri</a> --}}
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#pesan">Pesan & Doa</a>
+              {{-- <a class="nav-link" href="#pesan">Pesan & Doa</a> --}}
             </li>
           </ul>
         </div>
       </div>
     </nav>
    </header>
+   @foreach ($undangan as $item)
+   {{-- 
     <!-- akhir navbar -->
     <!-- carousel -->
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      
+      @foreach ($item->gallery as $key=>$gallery)
       <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      </div>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{$key}}" class="@if ($key === 0) active @endif" aria-current="true" aria-label="Slide {{$key}}"></button>
+         </div>
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="/assets_undangan/images/galeri/galeri1.jpg" class="d-block w-100" alt="galeri1" />
+        <div class="carousel-item @if ($key === 0) active @endif">
+          <img src="{{$gallery}}" class="d-block w-100" alt="galeri1" />
         </div>
-        <div class="carousel-item">
-          <img src="/assets_undangan/images/galeri/galeri2.jpg" class="d-block w-100" alt="galeri2" />
-        </div>
+       
         
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      @endforeach --}}
+      {{-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
@@ -81,11 +83,10 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
-    </div>
+    </div> --}}
     <!-- carousel end -->
     <!-- content -->
     <!-- About start -->
-    @foreach ($undangan as $item)
     <main style="background-image: url('/background_img/{{ $item->theme->background }}'); background-repeat: no-repeat; background-size: 100%;">
     <section class="card-a" id="about">
       <div class="container">
@@ -189,7 +190,7 @@
     <!-- Akhir Sloka -->
     <!-- Full screen modal -->   
     <!-- Galeri -->
-    <section class="card" id="galeri">
+    {{-- <section class="card" id="galeri">
       <div class="container col-md-6">
         <div class="row text-center mb-3">
           <div class="col">
@@ -201,12 +202,12 @@
             <div class="card-">
               <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
+                  @foreach ($item->gallery as $gallery)
+                  
                   <div class="carousel-item active">
-                    <img src="/assets_undangan/images/galeri/galeri1.jpg" class="d-block w-100" alt="galeri1.jpg" />
+                    <img src="{{$gallery}}" class="d-block w-100" alt="{{$gallery}}" />
                   </div>
-                  <div class="carousel-item">
-                    <img src="/assets_undangan/images/galeri/galeri2.jpg" class="d-block w-100" alt="galeri2.jpg" />
-                  </div>
+                  @endforeach
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -221,7 +222,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
     <!-- Akhir galeri -->
     <!-- Pesan dan Doa -->
     {{-- <section id="pesan" class="card">

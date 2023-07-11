@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+
+use App\Models\Customer;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
@@ -104,8 +106,11 @@ class UsersController extends Controller
      */
     public function destroy(string $id)
     {
+        $cust = Customer::where('user_id',$id)->first();
+        $cust->delete();
         $post = User::find($id);
         $post->delete();
+       
         return redirect()->back()->with('message', 'users berhasil dihapus');
     }
 }

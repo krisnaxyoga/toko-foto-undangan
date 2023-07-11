@@ -113,12 +113,24 @@ class OrderController extends Controller
             }
         }
 
-        $gallery = $request->file('gallery'); // Mendapatkan file gambar yang diunggah
-        $paths = []; // Array untuk menyimpan path gambar yang disimpan
-        foreach ($gallery as $image) {
-            $path = $image->store('public/gallery');
-            $paths[] = $path;
-        }
+        // $gallery = $request->file('gallery'); // Mendapatkan file gambar yang diunggah
+        // $paths = []; // Array untuk menyimpan path gambar yang disimpan
+        // foreach ($gallery as $image) {
+        //     $path = $image->store('/gallery');
+        //     $paths[] = $path;
+        // }
+        // $galleryPaths = [];
+
+        // if($request->hasFile('gallery')){
+        //     foreach ($request->file('gallery') as $gallery) {
+        //         $filename = uniqid().'.'.$gallery->getClientOriginalExtension();
+        //         $gallery->move(public_path('gallery'), $filename);
+
+        //         $galleryPaths[] = "/gallery/".$filename;
+        //     }
+        // }else{
+        //     $galleryPaths = [];
+        // }
         // Lakukan tindakan lain, misalnya menyimpan path gambar ke database
         // return response()->json(['message' => 'Gambar berhasil disimpan', 'paths' => $paths], 200);
 
@@ -138,7 +150,7 @@ class OrderController extends Controller
         $data->asalwanita = $request->asalwanita;
         $data->fotopria = $filenamepria;
         $data->fotowanita = $filenamewanita;
-        $data->gallery = $paths;
+        // $data->gallery = $galleryPaths;
 
         $data->save();
 

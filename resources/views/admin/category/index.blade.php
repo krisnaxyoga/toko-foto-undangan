@@ -11,7 +11,7 @@
                 </div>
                 <div class="card-body">
                     <a href="{{ route('category.create') }}" class="btn btn-primary mb-2">add</a>
-                    <a href="{{ route('excel.category') }}" class="btn btn-success mb-2">Download Excel</a>
+                    {{-- <a href="{{ route('excel.category') }}" class="btn btn-success mb-2">Download Excel</a> --}}
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
