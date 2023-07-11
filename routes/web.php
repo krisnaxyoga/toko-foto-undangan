@@ -13,14 +13,14 @@ use App\Http\Controllers\RedircetController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-
+Route::get('/list-package', [\App\Http\Controllers\Landing\IndexController::class, 'list_package'])->name('list_package');
+Route::get('/list-theme', [\App\Http\Controllers\Landing\IndexController::class, 'list_theme'])->name('list_theme');
+Route::get('/detail', [\App\Http\Controllers\Landing\IndexController::class, 'detail']);
+   
 //  jika user belum login
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [\App\Http\Controllers\Landing\IndexController::class, 'index']);
-    Route::get('/detail', [\App\Http\Controllers\Landing\IndexController::class, 'detail']);
-    Route::get('/list-package', [\App\Http\Controllers\Landing\IndexController::class, 'list_package'])->name('list_package');
-    Route::get('/list-theme', [\App\Http\Controllers\Landing\IndexController::class, 'list_theme'])->name('list_theme');
+ 
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'save_register']);
     Route::get('/login', [AuthController::class, 'login'])->name('login');

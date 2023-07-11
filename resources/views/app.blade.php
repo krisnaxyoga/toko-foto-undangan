@@ -47,7 +47,6 @@
 
           <div class="section-title">
             <h2>Daftar Paket</h2>
-            <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit</p>
           </div>
 
           <!-- Layout Card Product-->
@@ -89,9 +88,10 @@
                     </div>
                 </div>
             @endforeach
-
+            
           </div>
-          <div class="text-center mt-3"><a href="{{route('list_package')}}" class="btn btn-primary">Tampilkan Data Lainnya</a></div>
+          {{$package->links()}}
+          <div class="text-center mt-3"><a href="{{route('list_package')}}" class="btn btn-primary"></a></div>
         </div>
       </section><!-- End Services Section -->
 
@@ -101,7 +101,6 @@
 
           <div class="section-title">
             <h2>Theme undangan</h2>
-            <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit</p>
           </div>
 
           <!-- Layout Card Product-->
@@ -145,6 +144,7 @@
             @endforeach
 
           </div>
+          {{$theme->links()}}
           <div class="text-center mt-3"><a href="{{route('list_theme')}}" class="btn btn-primary">Tampilkan Data Lainnya</a></div>
         </div>
       </section><!-- End Services Section -->
@@ -189,7 +189,7 @@
 
           <div class="row mt-5 justify-content-center">
             <div class="col-lg-10">
-              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              {{-- <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                 <div class="row">
                   <div class="col-md-6 form-group">
                     <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -210,7 +210,7 @@
                   <div class="sent-message">Your message has been sent. Thank you!</div>
                 </div>
                 <div class="text-center"><button type="submit">Send Message</button></div>
-              </form>
+              </form> --}}
             </div>
 
           </div>
