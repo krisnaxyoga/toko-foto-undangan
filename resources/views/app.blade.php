@@ -1,7 +1,11 @@
 @extends('layouts.landing')
 @section('title', 'Home Page')
 @section('content')
-
+<style>
+  svg,.w-5 .h-5{
+    width: 20px;
+  }
+</style>
     <!-- ======= What We Do Section ======= -->
     <section id="what-we-do" class="what-we-do">
         <div class="container">
@@ -90,8 +94,8 @@
             @endforeach
             
           </div>
-          {{$package->links()}}
-          <div class="text-center mt-3"><a href="{{route('list_package')}}" class="btn btn-primary"></a></div>
+          <div class="text-center mt-3">{{$package->links()}}</div>
+          <div class="text-center mt-3"><a href="{{route('list_package')}}" class="btn btn-primary">Tampilkan Data Lainnya</a></div>
         </div>
       </section><!-- End Services Section -->
 
@@ -144,7 +148,7 @@
             @endforeach
 
           </div>
-          {{$theme->links()}}
+          <div class="text-center mt-3">{{$theme->links()}}</div>
           <div class="text-center mt-3"><a href="{{route('list_theme')}}" class="btn btn-primary">Tampilkan Data Lainnya</a></div>
         </div>
       </section><!-- End Services Section -->
