@@ -13,14 +13,15 @@ use App\Http\Controllers\RedircetController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/list-package', [\App\Http\Controllers\Landing\IndexController::class, 'list_package'])->name('list_package');
 Route::get('/list-theme', [\App\Http\Controllers\Landing\IndexController::class, 'list_theme'])->name('list_theme');
 Route::get('/detail', [\App\Http\Controllers\Landing\IndexController::class, 'detail']);
-   
+
 //  jika user belum login
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [\App\Http\Controllers\Landing\IndexController::class, 'index']);
- 
+
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'save_register']);
     Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -43,6 +44,8 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
     Route::resource('/customers', \App\Http\Controllers\Admin\CustomersController::class);
     Route::resource('/users', \App\Http\Controllers\Admin\UsersController::class);
     Route::resource('/transaksis', \App\Http\Controllers\Admin\TransaksisController::class);
+    //Untuk Filter Transaksis
+    Route::get('/filter/transaksis', [\App\Http\Controllers\Admin\TransaksisController::class, 'index'])->name('transaksis.filter');
     //Download Excel Category
     Route::get('/excel/category', [\App\Http\Controllers\Admin\CategoryController::class, 'dataCategoryExcel'])->name('excel.category');
     //Download Excel Transaksi
@@ -51,6 +54,8 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
     Route::get('/excel/packages', [\App\Http\Controllers\Admin\PackagesController::class, 'dataPackagesExcel'])->name('excel.packages');
     //Download Excel Themes
     Route::get('/excel/themes', [\App\Http\Controllers\Admin\ThemesController::class, 'dataThemesExcel'])->name('excel.themes');
+    //Cetak PDF Transaksis
+    Route::get('/pdf/transaksis', [\App\Http\Controllers\Admin\TransaksisController::class, 'index'])->name('pdf.transaksis');
 });
 
 // untuk customer
