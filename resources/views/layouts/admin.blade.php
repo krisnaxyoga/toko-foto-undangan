@@ -20,30 +20,23 @@
   <body>
     <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
         <a class="navbar-brand h-100 text-truncate" href="#">
-            <img class="img-fluid" src="/images/logo.png"/>
+        
              Dashboard Admin
         </a>
         <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle" href="#"><i data-feather="menu"></i></button>
 
         <ul class="navbar-nav align-items-center ml-auto">
             <li class="nav-item dropdown no-caret mr-2 dropdown-user">
-                <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid" src="/images/user.jpg"/></a>
+                <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i></a>
                 <div class="dropdown-menu dropdown-menu-right border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownUserImage">
                     <h6 class="dropdown-header d-flex align-items-center">
-                        <img class="dropdown-user-img" src="/images/user.jpg" />
                         <div class="dropdown-user-details">
                             <div class="dropdown-user-details-name">{{ Auth::user()->name }}</div>
                             <div class="dropdown-user-details-email">{{ Auth::user()->email }}</div>
                         </div>
                     </h6>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="">
-                        <div class="dropdown-item-icon"><i data-feather="settings"></i></div>
-                        Account
-                    </a>
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{-- {{ Auth::user()->name }} --}}
-                    </a>
+                  
                     <a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
@@ -63,7 +56,7 @@
                 <div class="sidenav-menu">
                     <div class="nav accordion" id="accordionSidenav">
                         <div class="sidenav-menu-heading">Main</div>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/admin">
                             <div class="nav-link-icon"><i data-feather="activity"></i></div>
                             Dashboard
                         </a>
@@ -87,14 +80,10 @@
                             <div class="nav-link-icon"><i data-feather="clipboard"></i></div>
                            Pengiriman
                         </a> --}}
-                        <a class="nav-link" href="#">
-                            <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
-                            konfirmasi transaksi
-                        </a>
-                        <a class="nav-link" href="{{ route('customers.index') }}">
+                        {{-- <a class="nav-link" href="{{ route('customers.index') }}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             data pengguna
-                        </a>
+                        </a> --}}
                         <a class="nav-link" href="{{ route('users.index') }}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             data user

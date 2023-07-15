@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\ThemeExport;
 use App\Http\Controllers\Controller;
 use App\Models\Theme;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ThemesController extends Controller
 {
@@ -27,6 +29,11 @@ class ThemesController extends Controller
         $model = new Theme();
 
         return view('admin.themes.form', compact('model'));
+    }
+
+    public function dataThemesExcel()
+    {
+        return Excel::download(new ThemeExport, 'theme.xlsx');
     }
 
     /**

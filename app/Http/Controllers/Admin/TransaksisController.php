@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
+use App\Exports\TransaksisExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class TransaksisController extends Controller
 {
@@ -13,16 +16,13 @@ class TransaksisController extends Controller
      */
     public function index()
     {
-        $data = Transaksi::all();
+        $data = Transaksi::latest()->get();
         return view('admin.transaksis.index', compact('data'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function dataTransaksisExcel()
     {
-        //
+        return Excel::download(new TransaksisExport, 'laporan.xlsx');
     }
 
     /**

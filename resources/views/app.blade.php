@@ -1,7 +1,11 @@
 @extends('layouts.landing')
 @section('title', 'Home Page')
 @section('content')
-
+<style>
+  svg,.w-5 .h-5{
+    width: 20px;
+  }
+</style>
     <!-- ======= What We Do Section ======= -->
     <section id="what-we-do" class="what-we-do">
         <div class="container">
@@ -47,7 +51,6 @@
 
           <div class="section-title">
             <h2>Daftar Paket</h2>
-            <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit</p>
           </div>
 
           <!-- Layout Card Product-->
@@ -66,7 +69,7 @@
 
                   <div class="portfolio-info">
                     <h4><a href="#">{{ $item->name }}</a></h4>
-                    <p class="text-success mb-3">{{ $item->price }}</p>
+                    <p class="text-success mb-3">Rp. {{ number_format($item->price , 0, ',', '.')}}</p>
                   </div>
                 </div>
               </div>
@@ -89,8 +92,9 @@
                     </div>
                 </div>
             @endforeach
-
+            
           </div>
+          <div class="text-center mt-3">{{$package->links()}}</div>
           <div class="text-center mt-3"><a href="{{route('list_package')}}" class="btn btn-primary">Tampilkan Data Lainnya</a></div>
         </div>
       </section><!-- End Services Section -->
@@ -101,7 +105,6 @@
 
           <div class="section-title">
             <h2>Theme undangan</h2>
-            <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit</p>
           </div>
 
           <!-- Layout Card Product-->
@@ -120,7 +123,7 @@
 
                   <div class="portfolio-info">
                     <h4><a href="#">{{ $item->name }}</a></h4>
-                    <p class="text-success mb-3">{{ $item->price }}</p>
+                    <p class="text-success mb-3">Rp. {{ number_format($item->price , 0, ',', '.')}}</p>
                   </div>
                 </div>
               </div>
@@ -145,6 +148,7 @@
             @endforeach
 
           </div>
+          <div class="text-center mt-3">{{$theme->links()}}</div>
           <div class="text-center mt-3"><a href="{{route('list_theme')}}" class="btn btn-primary">Tampilkan Data Lainnya</a></div>
         </div>
       </section><!-- End Services Section -->
@@ -189,7 +193,7 @@
 
           <div class="row mt-5 justify-content-center">
             <div class="col-lg-10">
-              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              {{-- <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                 <div class="row">
                   <div class="col-md-6 form-group">
                     <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -210,7 +214,7 @@
                   <div class="sent-message">Your message has been sent. Thank you!</div>
                 </div>
                 <div class="text-center"><button type="submit">Send Message</button></div>
-              </form>
+              </form> --}}
             </div>
 
           </div>

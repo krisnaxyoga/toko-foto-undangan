@@ -2,7 +2,7 @@
 @section('title', 'Home Page')
 @section('content')
 <section>
-    <div class="container">
+    <div class="container mt-4">
         <div class="row">
             <div class="col-lg-6">
                 <div class="card">

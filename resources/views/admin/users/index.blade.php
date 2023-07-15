@@ -17,7 +17,7 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    <th>created</th>
+                                    <th>role</th>
                                     <th>action</th>
                                 </tr>
                             </thead>
@@ -26,7 +26,7 @@
                                 <tr>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->email }}</td>
-                                    <td>{{ $item->created_at }}</td>
+                                    <td>{{ $item->role->role_name }}</td>
                                     <td><a href="{{ route('users.edit',$item->id) }}" class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i data-feather="edit"></i></a>
 
                                         <form class="d-inline" action="{{route('users.destroy', $item->id)}}" method="POST" onSubmit="return confirm('Apakah anda yakin akan menghapus data ini?');">

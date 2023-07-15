@@ -13,14 +13,14 @@ use App\Http\Controllers\RedircetController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-
+Route::get('/list-package', [\App\Http\Controllers\Landing\IndexController::class, 'list_package'])->name('list_package');
+Route::get('/list-theme', [\App\Http\Controllers\Landing\IndexController::class, 'list_theme'])->name('list_theme');
+Route::get('/detail', [\App\Http\Controllers\Landing\IndexController::class, 'detail']);
+   
 //  jika user belum login
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [\App\Http\Controllers\Landing\IndexController::class, 'index']);
-    Route::get('/detail', [\App\Http\Controllers\Landing\IndexController::class, 'detail']);
-    Route::get('/list-package', [\App\Http\Controllers\Landing\IndexController::class, 'list_package'])->name('list_package');
-    Route::get('/list-theme', [\App\Http\Controllers\Landing\IndexController::class, 'list_theme'])->name('list_theme');
+ 
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'save_register']);
     Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -43,6 +43,14 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
     Route::resource('/customers', \App\Http\Controllers\Admin\CustomersController::class);
     Route::resource('/users', \App\Http\Controllers\Admin\UsersController::class);
     Route::resource('/transaksis', \App\Http\Controllers\Admin\TransaksisController::class);
+    //Download Excel Category
+    Route::get('/excel/category', [\App\Http\Controllers\Admin\CategoryController::class, 'dataCategoryExcel'])->name('excel.category');
+    //Download Excel Transaksi
+    Route::get('/excel/transaksis', [\App\Http\Controllers\Admin\TransaksisController::class, 'dataTransaksisExcel'])->name('excel.transaksis');
+    //Download Excel Packages
+    Route::get('/excel/packages', [\App\Http\Controllers\Admin\PackagesController::class, 'dataPackagesExcel'])->name('excel.packages');
+    //Download Excel Themes
+    Route::get('/excel/themes', [\App\Http\Controllers\Admin\ThemesController::class, 'dataThemesExcel'])->name('excel.themes');
 });
 
 // untuk customer
@@ -56,6 +64,14 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
     Route::get('/customer/paymentcuscess', [\App\Http\Controllers\Customer\OrderController::class, 'paymentsuccess'])->name('payment.success');
     Route::get('/customer/paymentnotify', [\App\Http\Controllers\Customer\OrderController::class, 'notify'])->name('payment.notify');
     Route::get('/customer/transaksi', [\App\Http\Controllers\Customer\OrderController::class, 'transaksi'])->name('payment.transaksi');
+    //Download Excel Themes
+    Route::get('/excel/transcust', [\App\Http\Controllers\Customer\OrderController::class, 'dataTransaksisExcel'])->name('excel.transcust');
+
+    //Edit Undangan dan Send WA
+    Route::get('/customer/transaksi/{id}', [\App\Http\Controllers\Customer\OrderController::class, 'edit_transaksi'])->name('transaksi.edit');
+    Route::put('/customer/update-transaksi/{id}', [\App\Http\Controllers\Customer\OrderController::class, 'update_transaksi'])->name('transaksi.update');
+    Route::get('/customer/sendundangan/{id}', [\App\Http\Controllers\Customer\OrderController::class, 'send_undangan'])->name('transaksi.wa');
+
 
     Route::get('/customer/bayarundangan', [\App\Http\Controllers\Customer\OrderController::class, 'ipaymuundangan'])->name('customer.bayarundangan');
     Route::get('/customer/undangan', [\App\Http\Controllers\Landing\IndexController::class, 'undangan'])->name('customer.undangansend');

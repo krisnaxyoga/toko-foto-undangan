@@ -20,7 +20,6 @@
                                     <th>Phone</th>
                                     <th>Address</th>
                                     <th>created</th>
-                                    <th>action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -31,17 +30,7 @@
                                     <td>{{ $item->phone }}</td>
                                     <td>{{ $item->address }}</td>
                                     <td>{{ $item->created_at }}</td>
-                                    <td><a href="{{ route('customers.edit',$item->id) }}" class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i data-feather="edit"></i></a>
-
-                                        <form class="d-inline" action="{{route('customers.destroy', $item->id)}}" method="POST" onSubmit="return confirm('Apakah anda yakin akan menghapus data ini?');">
-                                            @csrf
-                                            @method('delete')
-
-                                            <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark mr-2">
-                                                <i data-feather="trash-2"></i>
-                                            </button>
-                                        </form>
-                                    </td>
+                                    
 
                                 </tr>
                                 @endforeach
