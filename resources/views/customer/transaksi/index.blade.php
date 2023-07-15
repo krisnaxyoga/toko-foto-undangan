@@ -17,6 +17,7 @@
                                     <tr>
                                     <th>Package name</th>
                                     <th>Description</th>
+                                    <th>Category</th>
                                     <th>Transaction</th>
                                     <th>status</th>
                                     </tr>
@@ -26,9 +27,9 @@
                                     <tr>
                                     <td>{{$item->package->name}}</td>
                                     <td>{{$item->package->description}}</td>
+                                    <td>{{$item->type_order}}</td>
                                     <td>{{$item->total}}</td>
                                     <td>{{$item->status}}</td>
-
                                     </tr>
                                     @endforeach
                                 </tbody>
