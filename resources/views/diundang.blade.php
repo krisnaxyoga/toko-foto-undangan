@@ -93,12 +93,12 @@
         <div class="row text-center mb-3">
           <div class="col">
             <img class="mb-3" src="/assets_undangan/images/ornam/Asset5a.png"/>
-            <h2>OM Swastiastu</h2>
+            <h2>Sambutan</h2>
           </div>
         </div>
         <div class="row justify-content-center fs-5 text-center">
           <div class="col-md-6">
-            <p class="fst-italic">Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa/Tuhan Yang Maha Esa, Kami bermaksud menyelengarakan upacara Pawiwahan putra-putri kami :</p>
+            <p class="fst-italic">{{ strip_tags($item->theme->sambutan) }}</p>
           </div>
         </div>
       </div>
@@ -167,22 +167,13 @@
         <div class="row justify-content-center fs-5 text-center">
           <figure class="text-center">
             <blockquote class="blockquote">
-              <p class="fst-italic p">"Grbhnāmi te saubhagatvāya hastam, Mayā patyā jaradastir yathāsah, Bhago aryamā savitā puramdhir, Mahyam tvādurgārhapatyāya devāh."</p>
+              <p class="fst-italic p">{{ strip_tags($item->theme->penutup) }}</p>
             </blockquote>
-            <figcaption class="blockquote-footer">
-              <cite title="Source Title">Rgveda : X.85.36</cite>
-              <blockquote class="blockquote">
-                <p class="fst-italic p">Dalam sebuah pernikahan kalian disatukan demi sebuah kebahagiaan dengan janji hati untuk saling membahagiakan. Bersamaku engkau akan hidup selamanya karena Tuhan pasti akan memberikan karunia sebagai pelindung dan saksi dalam pernikahan ini. Untuk itulah kalian dipersatukan dalam satu keluarga.</p>
-              </blockquote>
-            </figcaption>
           </figure>
-          <div class="col-md">
-            <p class="p">Atas Kehadiran serta Do'a Restunya, kami sekeluarga mengucapkan terima kasih. </p>
-          </div>
         </div>
         <div class="row text-center mb-3">
           <div class="col mt-3">
-            <h2 class="p" >Om Shanti, Shanti, Shanti Om</h2>
+            <h2 class="p" >Penutup</h2>
           </div>
         </div>
       </div>

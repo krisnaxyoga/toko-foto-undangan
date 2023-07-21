@@ -1,0 +1,84 @@
+TIME: 2023-07-21 07:20:20 
+IP: 127.0.0.1HEADER : 
+{"Content-Type":"application\/json","va":"0000002413132123","signature":"79777cff4f5d9fedfe6b2dd4f9b65efc3cd06cc83b4a1f0aa48e017e4ec9afc0","timestamp":"20230721072020"} 
+REQUEST : 
+{"url":"https:\/\/sandbox.ipaymu.com\/api\/v2\/payment","body":{"name":["Dode"],"email":["dodikap15@gmail.com"],"product":["Prewed Casual"],"price":[500000],"qty":[1],"returnUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentcuscess?total=500000&type=paket-foto","notifyUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentnotify","comments":"order produk","referenceId":"1234","vistreason":"chest hurting bad"},"method":"POST"} 
+TIME: 2023-07-21 07:20:20 
+IP: 127.0.0.1HEADER : 
+{"Content-Type":"application\/json","va":"0000002413132123","signature":"79777cff4f5d9fedfe6b2dd4f9b65efc3cd06cc83b4a1f0aa48e017e4ec9afc0","timestamp":"20230721072020"} 
+REQUEST : 
+{"url":"https:\/\/sandbox.ipaymu.com\/api\/v2\/payment","body":{"name":["Dode"],"email":["dodikap15@gmail.com"],"product":["Prewed Casual"],"price":[500000],"qty":[1],"returnUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentcuscess?total=500000&type=paket-foto","notifyUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentnotify","comments":"order produk","referenceId":"1234","vistreason":"chest hurting bad"},"method":"POST"} 
+STATUS: 200
+RESPONSE: "{\"Status\":200,\"Success\":true,\"Message\":\"Success\",\"Data\":{\"SessionID\":\"e778df12-84be-4009-a5b5-69e95b4c1567\",\"Url\":\"https:\\\/\\\/sandbox.ipaymu.com\\\/payment\\\/e778df12-84be-4009-a5b5-69e95b4c1567\"}}"
+-----------------------------------------
+
+TIME: 2023-07-21 07:30:52 
+IP: 127.0.0.1HEADER : 
+{"Content-Type":"application\/json","va":"0000002413132123","signature":"79777cff4f5d9fedfe6b2dd4f9b65efc3cd06cc83b4a1f0aa48e017e4ec9afc0","timestamp":"20230721073052"} 
+REQUEST : 
+{"url":"https:\/\/sandbox.ipaymu.com\/api\/v2\/payment","body":{"name":["Dode"],"email":["dodikap15@gmail.com"],"product":["Prewed Casual"],"price":[500000],"qty":[1],"returnUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentcuscess?total=500000&type=paket-foto","notifyUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentnotify","comments":"order produk","referenceId":"1234","vistreason":"chest hurting bad"},"method":"POST"} 
+TIME: 2023-07-21 07:30:52 
+IP: 127.0.0.1HEADER : 
+{"Content-Type":"application\/json","va":"0000002413132123","signature":"79777cff4f5d9fedfe6b2dd4f9b65efc3cd06cc83b4a1f0aa48e017e4ec9afc0","timestamp":"20230721073052"} 
+REQUEST : 
+{"url":"https:\/\/sandbox.ipaymu.com\/api\/v2\/payment","body":{"name":["Dode"],"email":["dodikap15@gmail.com"],"product":["Prewed Casual"],"price":[500000],"qty":[1],"returnUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentcuscess?total=500000&type=paket-foto","notifyUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentnotify","comments":"order produk","referenceId":"1234","vistreason":"chest hurting bad"},"method":"POST"} 
+STATUS: 200
+RESPONSE: "{\"Status\":200,\"Success\":true,\"Message\":\"Success\",\"Data\":{\"SessionID\":\"1973c258-5abf-4320-a853-04627dc7ea81\",\"Url\":\"https:\\\/\\\/sandbox.ipaymu.com\\\/payment\\\/1973c258-5abf-4320-a853-04627dc7ea81\"}}"
+-----------------------------------------
+
+TIME: 2023-07-21 07:56:21 
+IP: 127.0.0.1HEADER : 
+{"Content-Type":"application\/json","va":"0000002413132123","signature":"79777cff4f5d9fedfe6b2dd4f9b65efc3cd06cc83b4a1f0aa48e017e4ec9afc0","timestamp":"20230721075621"} 
+REQUEST : 
+{"url":"https:\/\/sandbox.ipaymu.com\/api\/v2\/payment","body":{"name":["Dode"],"email":["dodikap15@gmail.com"],"product":["Prewed Casual"],"price":[500000],"qty":[1],"returnUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentcuscess?total=500000&type=paket-foto","notifyUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentnotify","comments":"order produk","referenceId":"1234","vistreason":"chest hurting bad"},"method":"POST"} 
+TIME: 2023-07-21 07:56:21 
+IP: 127.0.0.1HEADER : 
+{"Content-Type":"application\/json","va":"0000002413132123","signature":"79777cff4f5d9fedfe6b2dd4f9b65efc3cd06cc83b4a1f0aa48e017e4ec9afc0","timestamp":"20230721075621"} 
+REQUEST : 
+{"url":"https:\/\/sandbox.ipaymu.com\/api\/v2\/payment","body":{"name":["Dode"],"email":["dodikap15@gmail.com"],"product":["Prewed Casual"],"price":[500000],"qty":[1],"returnUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentcuscess?total=500000&type=paket-foto","notifyUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentnotify","comments":"order produk","referenceId":"1234","vistreason":"chest hurting bad"},"method":"POST"} 
+STATUS: 200
+RESPONSE: "{\"Status\":200,\"Success\":true,\"Message\":\"Success\",\"Data\":{\"SessionID\":\"3e9bab2a-0fb5-40ec-91e6-173b283000b3\",\"Url\":\"https:\\\/\\\/sandbox.ipaymu.com\\\/payment\\\/3e9bab2a-0fb5-40ec-91e6-173b283000b3\"}}"
+-----------------------------------------
+
+TIME: 2023-07-21 08:00:18 
+IP: 127.0.0.1HEADER : 
+{"Content-Type":"application\/json","va":"0000002413132123","signature":"ab29e16c9f8ce6feabd625b1b312b15d36268611230a2495ab1d88f5edb6b878","timestamp":"20230721080018"} 
+REQUEST : 
+{"url":"https:\/\/sandbox.ipaymu.com\/api\/v2\/payment","body":{"name":["Dode"],"email":["dodikap15@gmail.com"],"product":["Prewed Formal"],"price":[1000000],"qty":[1],"returnUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentcuscess?total=1000000&type=paket-foto","notifyUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentnotify","comments":"order produk","referenceId":"1234","vistreason":"chest hurting bad"},"method":"POST"} 
+TIME: 2023-07-21 08:00:18 
+IP: 127.0.0.1HEADER : 
+{"Content-Type":"application\/json","va":"0000002413132123","signature":"ab29e16c9f8ce6feabd625b1b312b15d36268611230a2495ab1d88f5edb6b878","timestamp":"20230721080018"} 
+REQUEST : 
+{"url":"https:\/\/sandbox.ipaymu.com\/api\/v2\/payment","body":{"name":["Dode"],"email":["dodikap15@gmail.com"],"product":["Prewed Formal"],"price":[1000000],"qty":[1],"returnUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentcuscess?total=1000000&type=paket-foto","notifyUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentnotify","comments":"order produk","referenceId":"1234","vistreason":"chest hurting bad"},"method":"POST"} 
+STATUS: 200
+RESPONSE: "{\"Status\":200,\"Success\":true,\"Message\":\"Success\",\"Data\":{\"SessionID\":\"db96b757-0517-444e-8294-3618e8fb6621\",\"Url\":\"https:\\\/\\\/sandbox.ipaymu.com\\\/payment\\\/db96b757-0517-444e-8294-3618e8fb6621\"}}"
+-----------------------------------------
+
+TIME: 2023-07-21 08:21:00 
+IP: 127.0.0.1HEADER : 
+{"Content-Type":"application\/json","va":"0000002413132123","signature":"ab29e16c9f8ce6feabd625b1b312b15d36268611230a2495ab1d88f5edb6b878","timestamp":"20230721082100"} 
+REQUEST : 
+{"url":"https:\/\/sandbox.ipaymu.com\/api\/v2\/payment","body":{"name":["Dode"],"email":["dodikap15@gmail.com"],"product":["Prewed Formal"],"price":[1000000],"qty":[1],"returnUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentcuscess?total=1000000&type=paket-foto","notifyUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentnotify","comments":"order produk","referenceId":"1234","vistreason":"chest hurting bad"},"method":"POST"} 
+TIME: 2023-07-21 08:21:00 
+IP: 127.0.0.1HEADER : 
+{"Content-Type":"application\/json","va":"0000002413132123","signature":"ab29e16c9f8ce6feabd625b1b312b15d36268611230a2495ab1d88f5edb6b878","timestamp":"20230721082100"} 
+REQUEST : 
+{"url":"https:\/\/sandbox.ipaymu.com\/api\/v2\/payment","body":{"name":["Dode"],"email":["dodikap15@gmail.com"],"product":["Prewed Formal"],"price":[1000000],"qty":[1],"returnUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentcuscess?total=1000000&type=paket-foto","notifyUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentnotify","comments":"order produk","referenceId":"1234","vistreason":"chest hurting bad"},"method":"POST"} 
+STATUS: 200
+RESPONSE: "{\"Status\":200,\"Success\":true,\"Message\":\"Success\",\"Data\":{\"SessionID\":\"5b8830b3-8692-48ea-a73a-49d8215620e3\",\"Url\":\"https:\\\/\\\/sandbox.ipaymu.com\\\/payment\\\/5b8830b3-8692-48ea-a73a-49d8215620e3\"}}"
+-----------------------------------------
+
+TIME: 2023-07-21 09:41:42 
+IP: 127.0.0.1HEADER : 
+{"Content-Type":"application\/json","va":"0000002413132123","signature":"ab29e16c9f8ce6feabd625b1b312b15d36268611230a2495ab1d88f5edb6b878","timestamp":"20230721094142"} 
+REQUEST : 
+{"url":"https:\/\/sandbox.ipaymu.com\/api\/v2\/payment","body":{"name":["Dode"],"email":["dodikap15@gmail.com"],"product":["Prewed Formal"],"price":[1000000],"qty":[1],"returnUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentcuscess?total=1000000&type=paket-foto","notifyUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentnotify","comments":"order produk","referenceId":"1234","vistreason":"chest hurting bad"},"method":"POST"} 
+TIME: 2023-07-21 09:41:42 
+IP: 127.0.0.1HEADER : 
+{"Content-Type":"application\/json","va":"0000002413132123","signature":"ab29e16c9f8ce6feabd625b1b312b15d36268611230a2495ab1d88f5edb6b878","timestamp":"20230721094142"} 
+REQUEST : 
+{"url":"https:\/\/sandbox.ipaymu.com\/api\/v2\/payment","body":{"name":["Dode"],"email":["dodikap15@gmail.com"],"product":["Prewed Formal"],"price":[1000000],"qty":[1],"returnUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentcuscess?total=1000000&type=paket-foto","notifyUrl":"http:\/\/127.0.0.1:8000\/customer\/paymentnotify","comments":"order produk","referenceId":"1234","vistreason":"chest hurting bad"},"method":"POST"} 
+STATUS: 200
+RESPONSE: "{\"Status\":200,\"Success\":true,\"Message\":\"Success\",\"Data\":{\"SessionID\":\"9a8679d6-b927-44d0-823c-985d679c92ac\",\"Url\":\"https:\\\/\\\/sandbox.ipaymu.com\\\/payment\\\/9a8679d6-b927-44d0-823c-985d679c92ac\"}}"
+-----------------------------------------
+

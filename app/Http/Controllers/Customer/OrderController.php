@@ -179,14 +179,12 @@ class OrderController extends Controller
         return view('customer.transaksi.wa', compact('model'));
     }
 
-    public function ipaymu($id)
+    public function ipaymu($id, Request $request)
     {
         $iduser = auth()->user()->id;
         $paket = Package::where('id', $id)->get();
         $customer = Customer::where('user_id', $iduser)->get();
         $data['url'] = 'https://sandbox.ipaymu.com/api/v2/payment';
-
-
 
         // dd($total);
         $jml = [
@@ -226,7 +224,14 @@ class OrderController extends Controller
                 $trans->user_id = $iduser;
                 $trans->status = 'pembayaran di proses';
                 $trans->type_order = 'paket-foto';
+                $trans->tgl_mulai = $request->tgl_mulai;
+                $trans->tgl_selesai = $request->tgl_selesai;
                 $trans->save();
+
+                $pack = Package::query()->findOrFail($paket[0]->id);
+                $pack->tgl_mulai = $request->tgl_mulai;
+                $pack->tgl_selesai = $request->tgl_selesai;
+                $pack->save();
 
                 $topup = new Transaksi;
                 $topup->user_id = $iduser;
@@ -391,8 +396,6 @@ class OrderController extends Controller
         $customer = Customer::where('user_id', $iduser)->get();
 
         $data['url'] = 'https://sandbox.ipaymu.com/api/v2/payment';
-
-
 
         // dd($total);
         $jml = [
