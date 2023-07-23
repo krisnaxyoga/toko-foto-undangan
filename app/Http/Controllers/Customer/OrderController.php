@@ -71,7 +71,6 @@ class OrderController extends Controller
             'nama_pria' => 'required',
             'nama_wanita' => 'required',
             'tgl_mulai' => 'required',
-            'tgl_selesai' => 'required',
             'waktu_mulai' => 'required',
             'waktu_selesai' => 'required',
             'tempat_acara' => 'required',
@@ -224,14 +223,9 @@ class OrderController extends Controller
                 $trans->user_id = $iduser;
                 $trans->status = 'pembayaran di proses';
                 $trans->type_order = 'paket-foto';
-                $trans->tgl_mulai = $request->tgl_mulai;
-                $trans->tgl_selesai = $request->tgl_selesai;
+                $trans->tgl_foto = $request->tgl_mulai;
                 $trans->save();
 
-                $pack = Package::query()->findOrFail($paket[0]->id);
-                $pack->tgl_mulai = $request->tgl_mulai;
-                $pack->tgl_selesai = $request->tgl_selesai;
-                $pack->save();
 
                 $topup = new Transaksi;
                 $topup->user_id = $iduser;

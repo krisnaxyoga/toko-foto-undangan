@@ -49,7 +49,12 @@
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        @if($item->is_active == 1)
                         <a href="{{route('customer.order',$item->id)}}" class="btn btn-primary">Order</a>
+                        @else
+
+                        <a href="#" onclick="alert('full booking')" class="btn btn-primary">full book</a>
+                        @endif
                         </div>
                     </div>
                     </div>

@@ -25,11 +25,22 @@
                                 <tbody>
                                     @foreach ($data as $item)
                                     <tr>
-                                    <td>{{$item->package->name}}</td>
+                                    <td>{{$item->package->name}}
+                                        @if($item->tgl_foto != null)
+                                        <p style="font-style:italic">
+                                            tgl ambil foto:
+                                        {{$item->tgl_foto}}</p>
+                                        @endif
+                                    </td>
                                     <td>{{$item->package->description}}</td>
                                     <td>{{$item->type_order}}</td>
                                     <td>{{$item->total}}</td>
-                                    <td>{{$item->status}}</td>
+                                    <td>@if($item->status == 'berhasil')
+                                        <p class="text-success" style="font-style: italic">lunas</p>
+                                        @else
+                                        <p class="text-danger" style="font-style: italic">belum lunas</p>
+                                       @endif
+                                    </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

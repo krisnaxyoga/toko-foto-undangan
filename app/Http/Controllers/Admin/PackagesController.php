@@ -72,6 +72,7 @@ class PackagesController extends Controller
             // $data->image_url = $image;
             $data->description = $request->description;
             $data->price = $request->price;
+            $data->is_active = 1;
 
             $data->save();
 
@@ -155,5 +156,19 @@ class PackagesController extends Controller
         }
         $post->delete();
         return redirect()->back()->with('message', 'package berhasil dihapus');
+    }
+
+    public function fullbook($id){
+        $post = Package::find($id);
+        $post->is_active = 0;
+        $post->save();
+        return redirect()->back()->with('message', 'package fullbook');
+    }
+
+    public function activebook($id){
+        $post = Package::find($id);
+        $post->is_active = 1;
+        $post->save();
+        return redirect()->back()->with('message', 'package fullbook');
     }
 }

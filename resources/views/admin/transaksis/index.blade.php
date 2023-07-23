@@ -15,7 +15,7 @@
                     <form action="{{ route('transaksis.filter') }}">
                         <div class="d-flex">
                             <div class="form-group">
-                                <input type="date" class="form-control" id="startdate" value="{{ old('startdate', request('startdate')) }}" name="startdate"> 
+                                <input type="date" class="form-control" id="startdate" value="{{ old('startdate', request('startdate')) }}" name="startdate">
                             </div>
                             <p class="mx-2">To</p>
                             <div class="form-group">
@@ -24,15 +24,15 @@
                             <div class="form-group">
                                 <button class="btn btn-secondary mx-2">Filter</button>
                             </div>
-                            
+
                         </div>
                     </form>
-                    
+
                     {{-- Untuk Filter Excel --}}
                     <form action="{{ route('excel.transaksis') }}">
                         <div class="d-flex">
                             <div class="form-group">
-                                <input type="hidden" class="form-control" id="exstartdate" name="exstartdate"> 
+                                <input type="hidden" class="form-control" id="exstartdate" name="exstartdate">
                             </div>
                             <div class="form-group">
                                 <input type="hidden" class="form-control" id="exenddate" name="exenddate">
@@ -41,7 +41,7 @@
                                 <button class="btn btn-success mx-2"><i class="fa fa-file-excel" aria-hidden="true"></i> &nbsp; Download Excel</button>
                                 <button class="btn btn-primary mx-2" onclick="printButton()"><i class="fa fa-file-pdf" aria-hidden="true"></i> &nbsp; Cetak laporan</button>
                             </div>
-                            
+
                         </div>
                     </form>
 
@@ -57,7 +57,7 @@
                                     <th>Total</th>
                                     <th>Url Pembayaran</th>
                                     <th>status</th>
-                                    <th>created</th>
+                                    <th>tgl mulai foto</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -66,18 +66,18 @@
                                     <td>{{ $item->users->name }}</td>
                                     <td>{{ $item->customers->name }}</td>
                                     <td>{{ $item->customers->phone }}</td>
-                                    
+
                                     <td>{{ $item->customers->address }}</td>
                                     <td>{{ $item->orders->type_order }}</td>
                                     <td>{{ $item->total }}</td>
                                     <td>{{ $item->url_pembayaran }}</td>
                                     <td>{{ $item->status }}</td>
-                                    <td>{{ $item->created_at }}</td>
-                                   
+                                    <td>{{ $item->tgl_foto }}</td>
+
 
                                 </tr>
                                 @endforeach
-                                
+
                             </tbody>
                         </table>
                     </div>

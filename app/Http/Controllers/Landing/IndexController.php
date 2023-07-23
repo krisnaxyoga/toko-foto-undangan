@@ -19,8 +19,7 @@ class IndexController extends Controller
     {
         $today = Carbon::now()->toDateString();
 
-        $package = Package::where('tgl_mulai', '>', $today)
-            ->orWhere('tgl_selesai', '<', $today)
+        $package = Package::select('*')
             ->paginate(3);
 
         // $package = Package::paginate(3);
@@ -44,9 +43,7 @@ class IndexController extends Controller
         // $package = Package::all();
         $today = Carbon::now()->toDateString();
 
-        $package = Package::where('tgl_mulai', '>', $today)
-            ->orWhere('tgl_selesai', '<', $today)
-            ->get();
+        $package = Package::all();
         return view('package', compact('package'));
     }
 

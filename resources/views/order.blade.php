@@ -38,14 +38,8 @@
                       </div>
                       <div class="mb-2">
                         <div class="form-group">
-                          <label for="">Tanggal Mulai</label>
+                          <label for="">Tanggal Mulai foto</label>
                           <input type="date" name="tgl_mulai" class="form-control form-control-solid">
-                        </div>
-                      </div>
-                      <div class="mb-2">
-                        <div class="form-group">
-                          <label for="">Tanggal Selesai</label>
-                          <input type="date" name="tgl_selesai" class="form-control form-control-solid">
                         </div>
                       </div>
                       <input type="hidden" value="{{$paket[0]->id}}" name="idpaket">
@@ -68,7 +62,7 @@
                          <p class="mb-2">Price :</p>
                       </div>
                       <div class="col-6">
-                       <p class="mb-2">{{$paket[0]->name}}</p> 
+                       <p class="mb-2">{{$paket[0]->name}}</p>
                        <p class="mb-2">Rp. {{ number_format($paket[0]->price , 0, ',', '.')}}</p>
                        <p class="mb-2">{{$paket[0]->description}}</p>
                       </div>

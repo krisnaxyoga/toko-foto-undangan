@@ -21,7 +21,7 @@
                                     <th>image</th>
                                     <th>description</th>
                                     <th>price</th>
-                                    <th>created</th>
+                                    <th>active</th>
                                     <th>action</th>
                                 </tr>
                             </thead>
@@ -33,7 +33,13 @@
                                     <td><img src="/images/{{ $item->image }}" width="100"/></td>
                                     <td class="elipsis">{{ $item->description }}</td>
                                     <td>{{ $item->price }}</td>
-                                    <td>{{ $item->created_at }}</td>
+                                    <td>
+                                        @if($item->is_active == 1)
+                                        <p class="text-success">active</p>
+                                        @else
+                                        <p class="text-danger">full</p>
+                                        @endif
+                                    </td>
                                     <td><a href="{{ route('packages.edit',$item->id) }}" class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i data-feather="edit"></i></a>
 
                                         <form class="d-inline" action="{{route('packages.destroy', $item->id)}}" method="POST" onSubmit="return confirm('Apakah anda yakin akan menghapus data ini?');">
@@ -44,6 +50,12 @@
                                                 <i data-feather="trash-2"></i>
                                             </button>
                                         </form>
+
+
+                                        <a href="{{ route('fullbook.paket',$item->id) }}" class="btn btn-warning mr-2">full</a>
+
+
+                                        <a href="{{ route('activebook.paket',$item->id) }}" class="btn btn-success mr-2">active</a>
                                     </td>
 
                                 </tr>

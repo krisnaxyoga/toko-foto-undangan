@@ -58,11 +58,11 @@
     </nav>
    </header>
    @foreach ($undangan as $item)
-   {{-- 
+   {{--
     <!-- akhir navbar -->
     <!-- carousel -->
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-      
+
       @foreach ($item->gallery as $key=>$gallery)
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{$key}}" class="@if ($key === 0) active @endif" aria-current="true" aria-label="Slide {{$key}}"></button>
@@ -71,8 +71,8 @@
         <div class="carousel-item @if ($key === 0) active @endif">
           <img src="{{$gallery}}" class="d-block w-100" alt="galeri1" />
         </div>
-       
-        
+
+
       </div>
       @endforeach --}}
       {{-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -179,7 +179,7 @@
       </div>
     </section>
     <!-- Akhir Sloka -->
-    <!-- Full screen modal -->   
+    <!-- Full screen modal -->
     <!-- Galeri -->
     {{-- <section class="card" id="galeri">
       <div class="container col-md-6">
@@ -194,7 +194,7 @@
               <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                   @foreach ($item->gallery as $gallery)
-                  
+
                   <div class="carousel-item active">
                     <img src="{{$gallery}}" class="d-block w-100" alt="{{$gallery}}" />
                   </div>
@@ -223,10 +223,10 @@
             <h2>Pesan & Doa</h2>
           </div>
         </div>
-        <div class="col-md">  
+        <div class="col-md">
             <div class="card-body">
               <h5 class="card-title fst-italic">Doa Restu Anda merupakan karunia yang sangat berarti bagi kami.</h3>
-            </div>   
+            </div>
         </div>
       </div>
     </section> --}}
@@ -236,7 +236,7 @@
     <!-- footer -->
     <footer>
       <nav class="footer" style="background-color: rgb(215, 127, 161)">
-        <div class="container-fluid">       
+        <div class="container-fluid">
         <a href="#" class="text-white fw-bold" style="text-decoration: none">&copy; 2023</a>
         </div>
       </nav>
@@ -268,7 +268,7 @@
           <div class=""></div>
         </div>
       </div>
-    <!-- modal end --> 
+    <!-- modal end -->
     @endforeach
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="/assets_undangan/js/pawiwahan.js"></script>

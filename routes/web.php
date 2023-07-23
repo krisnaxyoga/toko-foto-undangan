@@ -40,6 +40,10 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
     Route::get('/admin', [\App\Http\Controllers\Admin\DashboardController::class, 'index']);
     Route::resource('/category', \App\Http\Controllers\Admin\CategoryController::class);
     Route::resource('/packages', \App\Http\Controllers\Admin\PackagesController::class);
+
+    Route::get('/packages/fullbook/{id}', [\App\Http\Controllers\Admin\PackagesController::class,'fullbook'])->name('fullbook.paket');
+
+    Route::get('/packages/active/{id}', [\App\Http\Controllers\Admin\PackagesController::class,'activebook'])->name('activebook.paket');
     Route::resource('/themes', \App\Http\Controllers\Admin\ThemesController::class);
     Route::resource('/customers', \App\Http\Controllers\Admin\CustomersController::class);
     Route::resource('/users', \App\Http\Controllers\Admin\UsersController::class);
