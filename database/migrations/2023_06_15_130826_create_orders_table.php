@@ -18,6 +18,8 @@ return new class extends Migration
             $table->integer('total')->nullable();
             $table->string('status')->nullable();
             $table->string('type_order')->nullable();
+            $table->date('tgl_mulai')->nullable();
+            $table->date('tgl_selesai')->nullable();
             $table->timestamps();
         });
     }

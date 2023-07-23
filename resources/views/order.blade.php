@@ -10,7 +10,8 @@
               <div class="col-lg-6">
                 <div class="card">
                   <div class="card-body">
-                    <form action="">
+                    <form action="{{route('customer.bayar',$paket[0]->id)}}" method="get" enctype="multipart/form-data">
+                      @csrf
                       <div class="mb-2">
                         <div class="form-group">
                           <label for="">Nama</label>
@@ -35,11 +36,23 @@
                           <input type="text" name="name" readonly value="{{$customer[0]->address}}" class="form-control form-control-solid">
                         </div>
                       </div>
+                      <div class="mb-2">
+                        <div class="form-group">
+                          <label for="">Tanggal Mulai</label>
+                          <input type="date" name="tgl_mulai" class="form-control form-control-solid">
+                        </div>
+                      </div>
+                      <div class="mb-2">
+                        <div class="form-group">
+                          <label for="">Tanggal Selesai</label>
+                          <input type="date" name="tgl_selesai" class="form-control form-control-solid">
+                        </div>
+                      </div>
                       <input type="hidden" value="{{$paket[0]->id}}" name="idpaket">
                       <hr>
                       <div class="mb-2">
                         <div class="from-group">
-                          <a href="{{route('customer.bayar',$paket[0]->id)}}" type="submit" class="mr-5 btn btn-primary">Bayar</a>
+                          <button type="submit" class="mr-5 btn btn-primary">Bayar</button>
                         </div>
                       </div>
                     </form>

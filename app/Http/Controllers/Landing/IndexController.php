@@ -8,6 +8,7 @@ use App\Models\Package;
 use App\Models\Theme;
 
 use App\Models\UndanganOrder;
+use Carbon\Carbon;
 
 class IndexController extends Controller
 {
@@ -16,7 +17,13 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $package = Package::paginate(3);
+        $today = Carbon::now()->toDateString();
+
+        $package = Package::where('tgl_mulai', '>', $today)
+            ->orWhere('tgl_selesai', '<', $today)
+            ->paginate(3);
+
+        // $package = Package::paginate(3);
         $theme = Theme::paginate(3);
         return view('app', compact('package', 'theme'));
     }
@@ -34,7 +41,12 @@ class IndexController extends Controller
      */
     public function list_package()
     {
-        $package = Package::all();
+        // $package = Package::all();
+        $today = Carbon::now()->toDateString();
+
+        $package = Package::where('tgl_mulai', '>', $today)
+            ->orWhere('tgl_selesai', '<', $today)
+            ->get();
         return view('package', compact('package'));
     }
 
