@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Exports\ThemeExport;
 use App\Http\Controllers\Controller;
 use App\Models\Theme;
+use App\Models\UndanganOrder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
@@ -161,11 +162,19 @@ class ThemesController extends Controller
      */
     public function destroy(string $id)
     {
-        $post = Theme::find($id);
-        if (File::exists(public_path($post->image_url))) {
-            File::delete(public_path($post->image_url));
+       // Hapus semua baris di tabel "UndanganOrder" dengan "theme_id" yang sama dengan $id
+    UndanganOrder::where('theme_id', $id)->delete();
+
+    // Cari dan hapus baris di tabel "Theme" berdasarkan "id"
+    $theme = Theme::find($id);
+    if ($theme) {
+        if (File::exists(public_path($theme->image_url))) {
+            File::delete(public_path($theme->image_url));
         }
-        $post->delete();
-        return redirect()->back()->with('message', 'theme berhasil dihapus');
+        $theme->delete();
+        return redirect()->back()->with('message', 'Data berhasil dihapus');
+    } else {
+        return redirect()->back()->with('message', 'Data tidak ditemukan');
+    }
     }
 }

@@ -14,13 +14,14 @@ use App\Http\Controllers\RedircetController;
 |
 */
 
-Route::get('/list-package', [\App\Http\Controllers\Landing\IndexController::class, 'list_package'])->name('list_package');
-Route::get('/list-theme', [\App\Http\Controllers\Landing\IndexController::class, 'list_theme'])->name('list_theme');
+Route::get('/listpackage', [\App\Http\Controllers\Landing\IndexController::class, 'list_package'])->name('list_package');
+Route::get('/themelist', [\App\Http\Controllers\Landing\IndexController::class, 'list_theme'])->name('list_theme');
 Route::get('/detail', [\App\Http\Controllers\Landing\IndexController::class, 'detail']);
+
+Route::get('/', [\App\Http\Controllers\Landing\IndexController::class, 'index']);
 
 //  jika user belum login
 Route::group(['middleware' => 'guest'], function () {
-    Route::get('/', [\App\Http\Controllers\Landing\IndexController::class, 'index']);
 
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'save_register']);
@@ -64,7 +65,6 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
 
 // untuk customer
 Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
-    Route::get('/home', [\App\Http\Controllers\Landing\IndexController::class, 'index']);
     Route::get('/customer', [\App\Http\Controllers\Customer\DashboardController::class, 'index'])->name('customer.dashboard');
     Route::get('/customer/order/{id}', [\App\Http\Controllers\Customer\OrderController::class, 'index'])->name('customer.order');
     Route::get('/customer/orderundangan/{id}', [\App\Http\Controllers\Customer\OrderController::class, 'undangan'])->name('customer.orderundangan');

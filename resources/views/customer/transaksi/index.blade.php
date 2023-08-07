@@ -15,8 +15,6 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                    <th>Package name</th>
-                                    <th>Description</th>
                                     <th>Category</th>
                                     <th>Transaction</th>
                                     <th>status</th>
@@ -25,15 +23,13 @@
                                 <tbody>
                                     @foreach ($data as $item)
                                     <tr>
-                                    <td>{{$item->package->name}}
+                                    <td>{{$item->type_order}}
                                         @if($item->tgl_foto != null)
                                         <p style="font-style:italic">
                                             tgl ambil foto:
                                         {{$item->tgl_foto}}</p>
                                         @endif
                                     </td>
-                                    <td>{{$item->package->description}}</td>
-                                    <td>{{$item->type_order}}</td>
                                     <td>{{$item->total}}</td>
                                     <td>@if($item->status == 'berhasil')
                                         <p class="text-success" style="font-style: italic">lunas</p>

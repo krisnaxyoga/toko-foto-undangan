@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Categorypackage;
+use App\Models\Package;
 
 use Illuminate\Support\Facades\Validator;
 use App\Exports\CategoryExport;
@@ -109,9 +110,16 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        $post = Categorypackage::find($id);
+        // Hapus semua baris di tabel "packages" yang memiliki "category_id" sama dengan $id
+        Package::where('category_id', $id)->delete();
 
-        $post->delete();
-        return redirect()->back()->with('message', 'Data berhasil dihapus');
+        // Cari dan hapus baris di tabel "categorypackages" berdasarkan "id"
+        $categorypackage = Categorypackage::find($id);
+        if ($categorypackage) {
+            $categorypackage->delete();
+            return redirect()->back()->with('message', 'Data berhasil dihapus');
+        } else {
+            return redirect()->back()->with('message', 'Data tidak ditemukan');
+        }
     }
 }

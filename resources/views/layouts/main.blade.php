@@ -34,7 +34,7 @@
                         </div>
                     </h6>
                     <div class="dropdown-divider"></div>
-                   
+
                     <a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
@@ -58,7 +58,7 @@
                             <div class="nav-link-icon"><i data-feather="activity"></i></div>
                             Dashboard
                         </a>
-                        <a class="nav-link" href="/home">
+                        <a class="nav-link" href="/">
                             <div class="nav-link-icon"><i data-feather="activity"></i></div>
                             Home Page
                         </a>

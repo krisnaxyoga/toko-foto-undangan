@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 
 use App\Models\Customer;
+use App\Models\UndanganOrder;
+use App\Models\Order;
+use App\Models\Transaksi;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
@@ -106,11 +109,19 @@ class UsersController extends Controller
      */
     public function destroy(string $id)
     {
-        $cust = Customer::where('user_id',$id)->first();
-        $cust->delete();
+        UndanganOrder::where('user_id',$id)->delete();
+        Transaksi::where('user_id',$id)->delete();
+        Order::where('user_id',$id)->delete();
+        Customer::where('user_id',$id)->delete();
+
         $post = User::find($id);
-        $post->delete();
-       
-        return redirect()->back()->with('message', 'users berhasil dihapus');
+        if($post){
+            $post->delete();
+
+            return redirect()->back()->with('message', 'users berhasil dihapus');
+        }else{
+            return redirect()->back()->with('message', 'Data tidak ditemukan');
+        }
+
     }
 }

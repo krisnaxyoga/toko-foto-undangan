@@ -31,19 +31,19 @@
     <div class="container d-flex align-items-center">
 
       <div class="logo me-auto">
-        <h1><a href="index.html">Lumia</a></h1>
+        <h1><a href="/">Lumia</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#what-we-do">Tentang Kami</a></li>
-          <li><a class="nav-link scrollto" href="#services">Daftar Paket</a></li>
-          <li><a class="nav-link scrollto " href="/register">Undangan Online</a></li>
+          <li><a class="nav-link scrollto active" href="/">Home</a></li>
+          <li><a class="nav-link scrollto" href="/#about">Tentang Kami</a></li>
+          <li><a class="nav-link scrollto" href="/#services">Daftar Paket</a></li>
+          <li><a class="nav-link scrollto" href="/#undanganonline">Undangan Online</a></li>
           @if(Auth::user())
-         
+
           <li><a class="nav-link" href="{{route('customer.dashboard')}}">dashboard</a></li>
           @else
           <li><a class="nav-link" href="/login">Login</a></li>
