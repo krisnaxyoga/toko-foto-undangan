@@ -1,0 +1,14 @@
+TIME: 2023-08-08 00:31:38 
+IP: 127.0.0.1HEADER : 
+{"Content-Type":"application\/json","va":"0000002413132123","signature":"7f2f0b0df0a2c31e3eb812c6408a661019fc2898468dde6edbdd7c54e566adbc","timestamp":"20230808003138"} 
+REQUEST : 
+{"url":"https:\/\/sandbox.ipaymu.com\/api\/v2\/payment","body":{"name":["surya sucipta"],"email":["bernard@gmail.com"],"product":["surya sucipta edit"],"price":[150000],"qty":[1],"returnUrl":"http:\/\/127.0.0.1:8003\/customer\/paymentcuscess?total=150000&type=undangan-online","notifyUrl":"http:\/\/127.0.0.1:8003\/customer\/paymentnotify","comments":"order produk","referenceId":"1234","vistreason":"chest hurting bad"},"method":"POST"} 
+TIME: 2023-08-08 00:31:38 
+IP: 127.0.0.1HEADER : 
+{"Content-Type":"application\/json","va":"0000002413132123","signature":"7f2f0b0df0a2c31e3eb812c6408a661019fc2898468dde6edbdd7c54e566adbc","timestamp":"20230808003138"} 
+REQUEST : 
+{"url":"https:\/\/sandbox.ipaymu.com\/api\/v2\/payment","body":{"name":["surya sucipta"],"email":["bernard@gmail.com"],"product":["surya sucipta edit"],"price":[150000],"qty":[1],"returnUrl":"http:\/\/127.0.0.1:8003\/customer\/paymentcuscess?total=150000&type=undangan-online","notifyUrl":"http:\/\/127.0.0.1:8003\/customer\/paymentnotify","comments":"order produk","referenceId":"1234","vistreason":"chest hurting bad"},"method":"POST"} 
+STATUS: 200
+RESPONSE: "{\"Status\":200,\"Success\":true,\"Message\":\"Success\",\"Data\":{\"SessionID\":\"bcee27dc-aa1a-45b9-8c6a-ce8aa8f8b46e\",\"Url\":\"https:\\\/\\\/sandbox.ipaymu.com\\\/payment\\\/bcee27dc-aa1a-45b9-8c6a-ce8aa8f8b46e\"}}"
+-----------------------------------------
+

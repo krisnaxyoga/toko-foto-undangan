@@ -17,7 +17,8 @@
                                     <tr>
                                     <th>Category</th>
                                     <th>Transaction</th>
-                                    <th>status</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -31,6 +32,7 @@
                                         @endif
                                     </td>
                                     <td>{{$item->total}}</td>
+                                    <td>{{$item->created_at}}</td>
                                     <td>@if($item->status == 'berhasil')
                                         <p class="text-success" style="font-style: italic">lunas</p>
                                         @else

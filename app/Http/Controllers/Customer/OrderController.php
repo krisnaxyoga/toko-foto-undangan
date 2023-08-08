@@ -175,7 +175,7 @@ class OrderController extends Controller
     {
         $model = UndanganOrder::query()->findOrFail($id);
 
-        return view('customer.transaksi.wa', compact('model'));
+        return view('customer.transaksi.wa', compact('model','id'));
     }
 
     public function ipaymu($id, Request $request)

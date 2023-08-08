@@ -27,6 +27,9 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('/register', [AuthController::class, 'save_register']);
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/login', [AuthController::class, 'dologin']);
+    
+    Route::get('/forgetpasssword/user', [AuthController::class, 'forgetpassword'])->name('forgetpassword.user');
+    Route::post('/forgotpassword', [AuthController::class, 'sendEmail'])->name('forgotpassword');
 });
 
 // untuk superadmin dan agent dan vendor
@@ -83,9 +86,9 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
 
 
     Route::get('/customer/bayarundangan', [\App\Http\Controllers\Customer\OrderController::class, 'ipaymuundangan'])->name('customer.bayarundangan');
-    Route::get('/customer/undangan', [\App\Http\Controllers\Landing\IndexController::class, 'undangan'])->name('customer.undangansend');
+    Route::get('/customer/undangan/{id}', [\App\Http\Controllers\Landing\IndexController::class, 'undangan'])->name('customer.undangansend');
 
-    Route::post('/customer/sendundangan', [\App\Http\Controllers\Landing\IndexController::class, 'sendundangan'])->name('customer.sendsend');
+    Route::post('/customer/sendundangan/{id}', [\App\Http\Controllers\Landing\IndexController::class, 'sendundangan'])->name('customer.sendsend');
 
     Route::get('/customer/profile/{id}', [\App\Http\Controllers\Customer\DashboardController::class, 'edit_profile'])->name('customer.profile');
     Route::put('/customer/update-profile/{id}', [\App\Http\Controllers\Customer\DashboardController::class, 'update_profile'])->name('customer.update');

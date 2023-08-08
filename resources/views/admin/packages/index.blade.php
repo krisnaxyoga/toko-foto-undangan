@@ -16,7 +16,7 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>category name</th>
+                                    {{-- <th>category name</th> --}}
                                     <th>name of packages</th>
                                     <th>image</th>
                                     <th>description</th>
@@ -28,7 +28,7 @@
                             <tbody>
                                 @foreach ($data as $item)
                                 <tr>
-                                    <td>{{ $item->categorypackage->name }}</td>
+                                    {{-- <td>{{ $item->categorypackage->name }}</td> --}}
                                     <td>{{ $item->name }}</td>
                                     <td><img src="/images/{{ $item->image }}" width="100"/></td>
                                     <td class="elipsis">{{ $item->description }}</td>

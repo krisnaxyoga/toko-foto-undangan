@@ -19,7 +19,7 @@
                         @csrf
                         @method($model->exists ? 'PUT' : 'POST')
 
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label class="small mb-1">Name of category <span class="text-danger">*</span></label>
                             <select name="category_id" id="" class="form-select form-control">
                                 <option value="">Select name of category</option>
@@ -29,7 +29,7 @@
                                     </option>
                                 @endforeach
                             </select>
-                        </div>
+                        </div> --}}
                         <div class="form-group">
                             <label class="small mb-1">Name <span class="text-danger">*</span></label>
                             <input class="form-control form-control-solid" name="name" type="text" placeholder="Name" value="{{ old('name', $model->name) }}" />

@@ -100,7 +100,7 @@
             @endforeach
 
           </div>
-          <div class="text-center mt-3">{{$package->links()}}</div>
+          {{-- <div class="text-center mt-3">{{$package->links()}}</div> --}}
           <div class="text-center mt-3"><a href="{{route('list_package')}}" class="btn btn-primary">Tampilkan Data Lainnya</a></div>
         </div>
       </section><!-- End Services Section -->
@@ -154,7 +154,7 @@
             @endforeach
 
           </div>
-          <div class="text-center mt-3">{{$theme->links()}}</div>
+          {{-- <div class="text-center mt-3">{{$theme->links()}}</div> --}}
           <div class="text-center mt-3"><a href="{{route('list_theme')}}" class="btn btn-primary">Tampilkan Data Lainnya</a></div>
         </div>
       </section><!-- End Services Section -->

@@ -32,10 +32,10 @@
                     <form action="{{ route('excel.transaksis') }}">
                         <div class="d-flex">
                             <div class="form-group">
-                                <input type="hidden" class="form-control" id="exstartdate" name="exstartdate">
+                                <input type="hidden" value="{{ now()->format('Y-m-d') }}" class="form-control" id="exstartdate" name="exstartdate">
                             </div>
                             <div class="form-group">
-                                <input type="hidden" class="form-control" id="exenddate" name="exenddate">
+                                <input type="hidden" value="{{ now()->addMonth()->format('Y-m-d') }}" class="form-control" id="exenddate" name="exenddate">
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-success mx-2"><i class="fa fa-file-excel" aria-hidden="true"></i> &nbsp; Download Excel</button>
@@ -49,36 +49,37 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>User Name</th>
+                                    <th>No</th>
                                     <th>Customer Name</th>
-                                    <th>Customer phone</th>
-                                    <th>address</th>
+                                    <th>Customer Phone</th>
+                                    <th>Address</th>
                                     <th>Order Type</th>
                                     <th>Total</th>
                                     <th>Url Pembayaran</th>
-                                    <th>status</th>
-                                    <th>tgl mulai foto</th>
+                                    <th>Status</th>
+                                    <th>Tgl Mulai Foto</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($data as $item)
-                                <tr>
-                                    <td>{{ $item->users->name }}</td>
-                                    <td>{{ $item->customers->name }}</td>
-                                    <td>{{ $item->customers->phone }}</td>
-
-                                    <td>{{ $item->customers->address }}</td>
-                                    <td>{{ $item->orders->type_order }}</td>
-                                    <td>{{ $item->total }}</td>
-                                    <td>{{ $item->url_pembayaran }}</td>
-                                    <td>{{ $item->status }}</td>
-                                    <td>{{ $item->tgl_foto }}</td>
-
-
-                                </tr>
+                                @foreach ($data as $a => $item)
+                                    <tr>
+                                        <td>{{ $a + 1 }}</td>
+                                        <td>{{ $item->customers->name }}</td>
+                                        <td>{{ $item->customers->phone }}</td>
+                                        <td>{{ $item->customers->address }}</td>
+                                        <td>{{ $item->orders->type_order }}</td>
+                                        <td>{{ $item->total }}</td>
+                                        <td>{{ $item->url_pembayaran }}</td>
+                                        <td>{{ $item->status }}</td>
+                                        <td>{{ $item->tgl_foto }}</td>
+                                    </tr>
                                 @endforeach
-
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th colspan="8">Print By : {{ auth()->user()->name }}</th> <!-- Kolom baru -->
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>

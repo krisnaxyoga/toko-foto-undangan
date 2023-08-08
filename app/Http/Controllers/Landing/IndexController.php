@@ -56,10 +56,9 @@ class IndexController extends Controller
         return view('theme', compact('theme'));
     }
 
-    public function undangan()
+    public function undangan($id)
     {
-        $id = auth()->user()->id;
-        $undangan = UndanganOrder::where('user_id', $id)->with('theme')->get();
+        $undangan = UndanganOrder::where('id', $id)->with('theme')->get();
         // return view('undangan',compact('undangan'));
         return view('diundang', compact('undangan'));
     }
@@ -74,7 +73,7 @@ class IndexController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function sendundangan(Request $request)
+    public function sendundangan(Request $request,$id)
     {
         // dd($request->all());
         $phoneNumber = $request->wanomor;
@@ -90,7 +89,7 @@ class IndexController extends Controller
         pada Acara Resepsi Kami
         melalui link Undangan Online dibawah ini:
 
-        " . route('customer.undangansend') . "
+        " . route('customer.undangansend',$id) . "
 
         Atas perhatian dan kehadirannya
         kami sekeluarga mengucapkan Terima Kasih

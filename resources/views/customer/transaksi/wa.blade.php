@@ -15,7 +15,7 @@
                             @endforeach
                         </div>
                     @endif
-                    <form action="{{ route('customer.sendsend') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('customer.sendsend',$id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="">nomor whatsapp penerima</label>

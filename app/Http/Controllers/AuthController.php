@@ -9,6 +9,10 @@ use App\Models\Role;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
+use App\Mail\ForgotPassword;
+
 class AuthController extends Controller
 {
     public function login(Request $request)
@@ -88,5 +92,35 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/');
+    }
+
+    public function forgetpassword(){
+        return view('auth.forgetpassword');
+    }
+
+    public function sendEmail(Request $request)
+    {
+        // Validate the request
+        $this->validate($request, [
+            'email' => 'required|email',
+        ]);
+
+        // Get the user by email
+        $user = User::where('email', $request->email)->first();
+
+        // Generate a new password reset token
+        $token = Str::random(8);
+
+        // Save the token to the database
+        $user->password = Hash::make($token);
+        $user->save();
+
+        // Send an email to the user with the password reset link
+        Mail::to($user->email)->send(new ForgotPassword($user, $token));
+
+        // Return a success response
+        return redirect()
+                ->route('login')
+                ->with('message', 'The password has been updated successfully, you can check your email for a new password');
     }
 }

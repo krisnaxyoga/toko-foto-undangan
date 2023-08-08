@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Categorypackage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,6 +21,10 @@ class DatabaseSeeder extends Seeder
 
         Role::create([
             'role_name' => 'customer',
+        ]);
+
+        Categorypackage::create([
+            'name' => 'paket-foto',
         ]);
 
         User::factory(5)->create();
