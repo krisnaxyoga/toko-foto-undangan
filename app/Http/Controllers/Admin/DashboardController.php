@@ -20,7 +20,9 @@ class DashboardController extends Controller
         $paket = Order::where('type_order','paket-foto')->count();
         $total = Order::where('status','berhasil')->sum('total');
 
-        return view('admin.index',compact('customer','undangan','paket','total'));
+        $totalorder = Order::count();
+
+        return view('admin.index',compact('customer','undangan','paket','total','totalorder'));
     }
 
     /**
