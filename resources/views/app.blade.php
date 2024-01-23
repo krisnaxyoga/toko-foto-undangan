@@ -114,7 +114,7 @@
           </div>
 
           <!-- Layout Card Product-->
-          <div class="row portfolio-container">
+          {{-- <div class="row portfolio-container">
             @foreach ($theme as $key=>$item)
             <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
                 <div class="portfolio-wrap">
@@ -132,7 +132,7 @@
                     <p class="text-success mb-3">Rp. {{ number_format($item->price , 0, ',', '.')}}</p>
                   </div>
                 </div>
-              </div>
+              </div> --}}
               <!-- Modal -->
                 {{-- <div class="modal fade" id="exampleModalx{{ $key }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -151,13 +151,13 @@
                     </div>
                     </div>
                 </div> --}}
-            @endforeach
+            {{-- @endforeach
 
-          </div>
+          </div> --}}
           {{-- <div class="text-center mt-3">{{$theme->links()}}</div> --}}
-          <div class="text-center mt-3"><a href="{{route('list_theme')}}" class="btn btn-primary">Tampilkan Data Lainnya</a></div>
+          {{-- <div class="text-center mt-3"><a href="{{route('list_theme')}}" class="btn btn-primary">Tampilkan Data Lainnya</a></div>
         </div>
-      </section><!-- End Services Section -->
+      </section><!-- End Services Section --> --}}
 
       <!-- ======= Contact Section ======= -->
       <section id="contact" class="contact section-bg">

@@ -60,18 +60,18 @@
                             <div class="nav-link-icon"><i data-feather="activity"></i></div>
                             Dashboard
                         </a>
-                        {{-- <a class="nav-link" href="{{ route('category.index') }}">
+                        <a class="nav-link" href="{{ route('category.index') }}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             category
-                        </a> --}}
+                        </a>
                         <a class="nav-link" href="{{ route('packages.index') }}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             kelola paket fotografi
                         </a>
-                        <a class="nav-link" href="{{ route('themes.index') }}">
+                        {{-- <a class="nav-link" href="{{ route('themes.index') }}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             kelola tema
-                        </a>
+                        </a> --}}
                         <a class="nav-link" href="{{ route('transaksis.index') }}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             kelola transaksi

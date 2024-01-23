@@ -28,10 +28,10 @@ class OrderController extends Controller
      */
     public function index($id)
     {
-        $iduser = auth()->user()->id;
-        $customer = Customer::where('user_id', $iduser)->get();
+        // $iduser = auth()->user()->id;
+        // $customer = Customer::where('user_id', $iduser)->get();
         $paket = Package::where('id', $id)->get();
-        return view('order', compact('customer', 'paket'));
+        return view('order', compact('paket'));
     }
 
     public function undangan($id)

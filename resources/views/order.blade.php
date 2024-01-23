@@ -15,31 +15,35 @@
                       <div class="mb-2">
                         <div class="form-group">
                           <label for="">Nama</label>
-                          <input type="text" readonly name="name" value="{{$customer[0]->name}}" class="form-control form-control-solid">
+                          <input type="text" readonly name="name" value="" class="form-control form-control-solid">
                         </div>
                       </div>
                       <div class="mb-2">
                         <div class="form-group">
                           <label for="">Email</label>
-                          <input type="text" name="name" readonly value="{{auth()->user()->email}}" class="form-control form-control-solid">
+                          <input type="text" name="name" readonly value="" class="form-control form-control-solid">
                         </div>
                       </div>
                       <div class="mb-2">
                         <div class="form-group">
                           <label for="">Telepon</label>
-                          <input type="text" name="name" readonly value="{{$customer[0]->phone}}" class="form-control form-control-solid">
+                          <input type="text" name="name" readonly value="" class="form-control form-control-solid">
                         </div>
                       </div>
                       <div class="mb-2">
                         <div class="form-group">
                           <label for="">Alamat</label>
-                          <input type="text" name="name" readonly value="{{$customer[0]->address}}" class="form-control form-control-solid">
+                          <input type="text" name="name" readonly value="" class="form-control form-control-solid">
                         </div>
                       </div>
                       <div class="mb-2">
                         <div class="form-group">
                           <label for="">Tanggal Mulai foto</label>
-                          <input type="date" name="tgl_mulai" class="form-control form-control-solid">
+                          <div class="d-flex">
+                            <input type="date" name="tgl_mulai" class="form-control form-control-solid">
+                            <input type="time" name="waktu" class="form-control form-control-solid">
+                          </div>
+                         
                         </div>
                       </div>
                       <input type="hidden" value="{{$paket[0]->id}}" name="idpaket">

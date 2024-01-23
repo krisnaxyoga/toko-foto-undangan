@@ -27,7 +27,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('/register', [AuthController::class, 'save_register']);
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/login', [AuthController::class, 'dologin']);
-    
+    Route::get('/customer/order/{id}', [\App\Http\Controllers\Customer\OrderController::class, 'index'])->name('customer.order');
     Route::get('/forgetpasssword/user', [AuthController::class, 'forgetpassword'])->name('forgetpassword.user');
     Route::post('/forgotpassword', [AuthController::class, 'sendEmail'])->name('forgotpassword');
 });
@@ -69,7 +69,7 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
 // untuk customer
 Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
     Route::get('/customer', [\App\Http\Controllers\Customer\DashboardController::class, 'index'])->name('customer.dashboard');
-    Route::get('/customer/order/{id}', [\App\Http\Controllers\Customer\OrderController::class, 'index'])->name('customer.order');
+    // Route::get('/customer/order/{id}', [\App\Http\Controllers\Customer\OrderController::class, 'index'])->name('customer.order');
     Route::get('/customer/orderundangan/{id}', [\App\Http\Controllers\Customer\OrderController::class, 'undangan'])->name('customer.orderundangan');
 
     Route::get('/customer/bayar/{id}', [\App\Http\Controllers\Customer\OrderController::class, 'ipaymu'])->name('customer.bayar');
