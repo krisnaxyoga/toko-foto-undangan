@@ -17,7 +17,7 @@ use App\Http\Controllers\RedircetController;
 Route::get('/listpackage', [\App\Http\Controllers\Landing\IndexController::class, 'list_package'])->name('list_package');
 Route::get('/themelist', [\App\Http\Controllers\Landing\IndexController::class, 'list_theme'])->name('list_theme');
 Route::get('/detail', [\App\Http\Controllers\Landing\IndexController::class, 'detail']);
-
+Route::get('/get-data/{id}', [\App\Http\Controllers\Landing\IndexController::class, 'getdata']);
 Route::get('/', [\App\Http\Controllers\Landing\IndexController::class, 'index']);
 
 //  jika user belum login

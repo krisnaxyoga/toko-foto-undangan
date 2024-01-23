@@ -107,7 +107,7 @@ class IndexController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function getdata(string $id)
     {
         //
     }
