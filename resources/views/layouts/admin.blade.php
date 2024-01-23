@@ -20,7 +20,7 @@
   <body>
     <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
         <a class="navbar-brand h-100 text-truncate" href="#">
-        
+
              Dashboard Admin
         </a>
         <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle" href="#"><i data-feather="menu"></i></button>
@@ -36,7 +36,7 @@
                         </div>
                     </h6>
                     <div class="dropdown-divider"></div>
-                  
+
                     <a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
@@ -60,18 +60,18 @@
                             <div class="nav-link-icon"><i data-feather="activity"></i></div>
                             Dashboard
                         </a>
-                        {{-- <a class="nav-link" href="{{ route('category.index') }}">
+                        <a class="nav-link" href="{{ route('category.index') }}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             category
-                        </a> --}}
+                        </a>
                         <a class="nav-link" href="{{ route('packages.index') }}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             kelola paket fotografi
                         </a>
-                        <a class="nav-link" href="{{ route('themes.index') }}">
+                        {{-- <a class="nav-link" href="{{ route('themes.index') }}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             kelola tema
-                        </a>
+                        </a> --}}
                         <a class="nav-link" href="{{ route('transaksis.index') }}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
                             kelola transaksi
