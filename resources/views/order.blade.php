@@ -19,25 +19,19 @@
                       <div class="mb-2">
                         <div class="form-group">
                           <label for="">Nama</label>
-                          <input type="text" readonly name="name" value="" class="form-control form-control-solid">
+                          <input type="text" name="name" value="" class="form-control form-control-solid">
                         </div>
                       </div>
                       <div class="mb-2">
                         <div class="form-group">
                           <label for="">Email</label>
-                          <input type="text" name="name" readonly value="" class="form-control form-control-solid">
+                          <input type="text" name="email" value="" class="form-control form-control-solid">
                         </div>
                       </div>
                       <div class="mb-2">
                         <div class="form-group">
-                          <label for="">Telepon</label>
-                          <input type="text" name="name" readonly value="" class="form-control form-control-solid">
-                        </div>
-                      </div>
-                      <div class="mb-2">
-                        <div class="form-group">
-                          <label for="">Alamat</label>
-                          <input type="text" name="name" readonly value="" class="form-control form-control-solid">
+                          <label for="">Telepon (Whatsapp)</label>
+                          <input type="text" name="telepon" value="" class="form-control form-control-solid">
                         </div>
                       </div>
                       <div class="mb-2">
@@ -51,7 +45,7 @@
                               <?php
                                   $start_time = strtotime('10:00');
                                   $end_time = strtotime('18:30');
-                          
+
                                   while ($start_time <= $end_time) {
                                       $formatted_time = date('H:i', $start_time);
                                       echo "<option value=\"$formatted_time\">$formatted_time</option>";
@@ -60,7 +54,7 @@
                               ?>
                           </select>
                           </div>
-                         
+
                         </div>
                       </div>
                       <input type="hidden" value="{{$paket[0]->id}}" name="idpaket">

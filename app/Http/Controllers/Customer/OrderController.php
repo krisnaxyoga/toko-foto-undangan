@@ -177,6 +177,35 @@ class OrderController extends Controller
 
         return view('customer.transaksi.wa', compact('model','id'));
     }
+    public function order($id, Request $request){
+        $paket = Package::where('id', $id)->get();
+        // $customer = Customer::where('user_id', $iduser)->get();
+        $customer = new Customer;
+
+        $customer->user_id = $request->idstudio;
+        $customer->name = $request->name;
+        $customer->email = $request->email;
+        $customer->phone = $request->telepon;
+        $customer->address = "";
+        $customer->save();
+
+        $trans = new Order;
+        $trans->total = $paket[0]->price;
+        $trans->package_id = $paket[0]->id;
+        $trans->customer_id = $customer->id;
+        $trans->user_id = $request->idstudio;
+        $trans->status = 'booking-success';
+        $trans->type_order = 'paket-foto';
+        $trans->tgl_mulai = $request->tgl_mulai;
+        $trans->tgl_selesai = $request->tgl_mulai;
+        $trans->starttime = $request->waktu;
+
+        $timestampAwal = strtotime($request->waktu);
+        $trans->endtime = $timestampAwal + 1800;
+        $trans->save();
+
+        return redirect()->back()->with('message', 'Booking SUCCESS');
+    }
 
     public function ipaymu($id, Request $request)
     {
