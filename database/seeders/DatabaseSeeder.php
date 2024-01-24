@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         Categorypackage::create([
             'name' => 'paket-foto',
         ]);
+        
 
         User::factory(5)->create();
     }

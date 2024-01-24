@@ -14,7 +14,7 @@
     <script data-search-pseudo-elements defer src="/dashboard_assets/cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
     <script src="/dashboard_assets/cdnjs.cloudflare.com/ajax/libs/feather-icons/4.27.0/feather.min.js" crossorigin="anonymous"></script>
     @stack('style')
-    <title>Dashboard</title>
+    <title>Dashboard Cabang</title>
   </head>
   <body>
     <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
@@ -68,7 +68,7 @@
                         </a> --}}
                         <a class="nav-link" href="{{route('payment.transaksi')}}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>
-                            riwayat transaksi
+                            Booking
                         </a>
                         <a class="nav-link" href="{{route('customer.profile',Auth::user()->id)}}">
                             <div class="nav-link-icon"><i data-feather="chevrons-right"></i></div>

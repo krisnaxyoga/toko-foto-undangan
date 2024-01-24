@@ -13,4 +13,9 @@ class Order extends Model
     {
         return $this->belongsTo(Package::class, 'package_id');
     }
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'customer_id');
+    }
 }

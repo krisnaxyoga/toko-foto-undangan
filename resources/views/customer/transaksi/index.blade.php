@@ -7,7 +7,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h2>Riwayat Transaksi</h2>
+                        <h2>Riwayat BOOKING</h2>
                     </div>
                     <div class="card-body">
                         {{-- <a href="{{ route('excel.transcust') }}" class="btn btn-success mb-2">Download Excel</a> --}}
@@ -15,29 +15,51 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                    <th>Category</th>
-                                    <th>Transaction</th>
-                                    <th>Date</th>
+                                    <th>#</th>
+                                    <th>Total Harga</th>
+                                    <th>tanggal</th>
+                                    <th>jam</th>
                                     <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($data as $item)
                                     <tr>
-                                    <td>{{$item->type_order}}
-                                        @if($item->tgl_foto != null)
-                                        <p style="font-style:italic">
-                                            tgl ambil foto:
-                                        {{$item->tgl_foto}}</p>
-                                        @endif
+                                        <td>
+                                            <ul>
+                                                <li> <b>Nama Paket :</b> {{$item->package->name}}</li>
+                                                <li><b>Nama Customer:</b> {{$item->customer->name}}</li>
+                                                <li><b>Whatsapp: </b> <a href="https://wa.me/{{$item->customer->phone}}">{{$item->customer->phone}}</a></li>
+
+                                                @if($item->person_price)
+                                                    <li><b>Add Person: </b> {{$item->person}}</li>
+                                                    <li><b>Person Price: </b>{{$item->person_price}}</li>
+                                                @endif
+
+                                                @if($item->addprint_price)
+                                                <li><b>Print Price: </b> {{$item->addprint_price}}</li>
+                                                @endif
+
+                                                @if($item->addbackground_price)
+                                                    <li><b>Add Background Price: </b> {{$item->addbackground_price}}</li>
+                                                @endif
+
+                                                @if($item->extratime_price)
+                                                <li><b>Add Extra time (10 minute): </b> {{$item->extratime_price}}</li>
+                                            @endif
+                                            </ul>
+                                          
+                                           
+                                        </td>
+                                   
+                                    <td>
+                                        {{$item->total + $item->person_price + $item->addprint_price + $item->addbackground_price + $item->extratime_price}}
                                     </td>
-                                    <td>{{$item->total}}</td>
-                                    <td>{{$item->created_at}}</td>
-                                    <td>@if($item->status == 'berhasil')
-                                        <p class="text-success" style="font-style: italic">lunas</p>
-                                        @else
-                                        <p class="text-danger" style="font-style: italic">belum lunas</p>
-                                       @endif
+                                    <td>{{$item->tgl_mulai}}
+                                    </td>
+                                    <td>{{$item->starttime}}
+                                    </td>
+                                    <td>{{$item->status}}
                                     </td>
                                     </tr>
                                     @endforeach
@@ -48,7 +70,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-3">
+        {{-- <div class="row mt-3">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
@@ -83,7 +105,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         {{-- @if (count($undangan))
             <div class="row mt-4">
                 <div class="col-lg-6">

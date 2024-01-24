@@ -28,6 +28,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/login', [AuthController::class, 'dologin']);
     Route::get('/customer/order/{id}', [\App\Http\Controllers\Customer\OrderController::class, 'index'])->name('customer.order');
+    Route::get('/customer/available/{id}', [\App\Http\Controllers\Customer\OrderController::class, 'available'])->name('customer.available');
     Route::get('/customer/bayar/{id}', [\App\Http\Controllers\Customer\OrderController::class, 'order'])->name('customer.bayar');
 
     Route::get('/forgetpasssword/user', [AuthController::class, 'forgetpassword'])->name('forgetpassword.user');

@@ -30,8 +30,23 @@ class OrderController extends Controller
     {
         // $iduser = auth()->user()->id;
         // $customer = Customer::where('user_id', $iduser)->get();
+        $cabang = User::where('role_id',2)->get();
         $paket = Package::where('id', $id)->get();
-        return view('order', compact('paket'));
+        $order = Order::where('package_id',$id)->where('tgl_mulai',Carbon::now()->toDateString())->get();
+        $date = Carbon::now()->toDateString();
+        $idstudio = null;
+        return view('order', compact('paket','cabang','order','date','idstudio'));
+    }
+
+    public function available($id,Request $request)
+    {
+       
+        $cabang = User::where('role_id',2)->get();
+        $paket = Package::where('id', $id)->get();
+        $order = Order::where('package_id',$id)->where('user_id',$request->idstudio)->where('tgl_mulai',$request->date)->get();
+        $date = $request->date;
+        $idstudio = $request->idstudio;
+        return view('order', compact('paket','cabang','order','date','idstudio'));
     }
 
     public function undangan($id)
@@ -49,7 +64,7 @@ class OrderController extends Controller
     public function transaksi()
     {
         $iduser = auth()->user()->id;
-        $data = Order::where('user_id', $iduser)->with('package')->get();
+        $data = Order::where('user_id', $iduser)->with('package')->with('customer')->get();
         $undangan = UndanganOrder::where('user_id', $iduser)->get();
 
         return view('customer.transaksi.index', compact('data', 'undangan'));
@@ -196,12 +211,17 @@ class OrderController extends Controller
         $trans->user_id = $request->idstudio;
         $trans->status = 'booking-success';
         $trans->type_order = 'paket-foto';
-        $trans->tgl_mulai = $request->tgl_mulai;
-        $trans->tgl_selesai = $request->tgl_mulai;
+        $trans->tgl_mulai = $request->dates;
+        $trans->tgl_selesai = $request->dates;
         $trans->starttime = $request->waktu;
 
-        $timestampAwal = strtotime($request->waktu);
-        $trans->endtime = $timestampAwal + 1800;
+        $trans->endtime = $request->waktu;
+        $trans->extratime_price = $request->extratime;
+        $trans->addbackground_price = $request->background;
+        $trans->addprint_price = $request->print;
+        $trans->person_price = $request->person * 20000;
+        $trans->person = $request->person;
+        
         $trans->save();
 
         return redirect()->back()->with('message', 'Booking SUCCESS');
