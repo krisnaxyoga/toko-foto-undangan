@@ -73,7 +73,7 @@ class AuthController extends Controller
             // buat ulang session login
             $request->session()->regenerate();
 
-            if (auth()->user()->role_id === 1) {
+            if (auth()->user()->role_id == 1) {
                 // jika user superadmin
                 return redirect()->intended('/admin');
             } else {
